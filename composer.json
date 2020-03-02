@@ -1,0 +1,22 @@
+{
+  "name": "publishpress/WordPress-Pro-Plugins-Ads",
+  "type": "library",
+  "license": "GPL-2",
+  "authors": [
+    {
+      "name": "PublishPress",
+      "email": "help@publishpress.com",
+      "homepage": "https://publishpress.com",
+      "role": "Developer"
+    }
+  ],
+  "config": {
+    "preferred-install": "dist"
+  },
+  "autoload": {
+  },
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=5.6.20"
+  }
+}
