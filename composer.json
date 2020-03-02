@@ -2,7 +2,7 @@
   "name": "publishpress/wordpress-pro-plugins-ads",
   "description": "Library for displaying ads for Pro plugins in WordPress.",
   "type": "library",
-  "license": "GPL-2",
+  "license": "GPL-2.0-or-later",
   "authors": [
     {
       "name": "PublishPress",
