@@ -84,23 +84,24 @@ class Module implements AdInterface
 
     private function executeOnValidConditions(callable $callback)
     {
+        $screen = get_current_screen();
+
         foreach ($this->settings as $pluginName => $setting) {
-            foreach ($setting['conditions'] as $vars) {
-                if ($vars === true) {
+            foreach ($setting['screens'] as $screenParams) {
+                if ($screenParams === true) {
                     $callback($setting);
                     return;
                 }
 
                 // Check each GET var
                 $validVars = 0;
-                foreach ($vars as $var => $value) {
-                    if (!isset($_GET[$var]) || $_GET[$var] !== $value) {
-                        break;
+                foreach ($screenParams as $var => $value) {
+                    if (isset($screen->$var) && $screen->$var === $value) {
+                        $validVars++;
                     }
-
-                    $validVars++;
                 }
-                if ($validVars === count($vars)) {
+
+                if ($validVars === count($screenParams)) {
                     $callback($setting);
                     return;
                 }
