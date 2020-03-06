@@ -52,42 +52,40 @@ class TemplateLoaderTest extends \Codeception\TestCase\WPTestCase
 
     public function test_displayed_template_output()
     {
-        ob_start();
-        $this->templateLoader->displayOutput('Dumb', 'test1');
-        $output = ob_get_clean();
-
         $expected = '<h1>Test1</h1>';
 
-        $this->assertEquals($expected, $output);
+        $this->expectOutputString($expected);
+
+        $this->templateLoader->displayOutput('Dumb', 'test1');
     }
 
     public function test_returned_template_output()
     {
-        $output = $this->templateLoader->returnOutput('Dumb', 'test1');
-
         $expected = '<h1>Test1</h1>';
+
+        $output = $this->templateLoader->returnOutput('Dumb', 'test1');
 
         $this->assertEquals($expected, $output);
     }
 
     public function test_displayed_template_output_with_context()
     {
+        $expected = '<h1>Test2: bar1, bar2</h1>';
+
+        $this->expectOutputString($expected);
+
         $context = [
             'foo1' => 'bar1',
             'foo2' => 'bar2',
         ];
 
-        ob_start();
         $this->templateLoader->displayOutput('Dumb', 'test2', $context);
-        $output = ob_get_clean();
-
-        $expected = '<h1>Test2: bar1, bar2</h1>';
-
-        $this->assertEquals($expected, $output);
     }
 
     public function test_returned_template_output_with_context()
     {
+        $expected = '<h1>Test2: bar1, bar2</h1>';
+
         $context = [
             'foo1' => 'bar1',
             'foo2' => 'bar2',
@@ -95,7 +93,6 @@ class TemplateLoaderTest extends \Codeception\TestCase\WPTestCase
 
         $output = $this->templateLoader->returnOutput('Dumb', 'test2', $context);
 
-        $expected = '<h1>Test2: bar1, bar2</h1>';
 
         $this->assertEquals($expected, $output);
     }
