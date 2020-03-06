@@ -44,4 +44,12 @@ class ServicesProviderTest extends \Codeception\TestCase\WPTestCase
 
         $this->assertIsObject($this->container['template_loader'], 'Template Loader is not an object');
     }
+
+    public function test_templates_path_is_defined()
+    {
+        $this->assertArrayHasKey('TEMPLATES_PATH', $this->container,
+            'Template Loader is not found in the container');
+
+        $this->assertIsString($this->container['TEMPLATES_PATH'], 'Template Path is not defined');
+    }
 }
