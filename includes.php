@@ -27,6 +27,7 @@ use Pimple\Container;
 use PPProAds\ServicesProvider;
 
 if (!defined('PP_PRO_ADS_LOADED')) {
+    define('PP_PRO_ADS_VERSION', '0.1.0');
     define('PP_PRO_ADS_BASE_PATH', __DIR__);
     define('PP_PRO_ADS_SRC_PATH', PP_PRO_ADS_BASE_PATH . DIRECTORY_SEPARATOR . 'src');
 
@@ -42,12 +43,14 @@ if (!defined('PP_PRO_ADS_LOADED')) {
         }
     }
 
-    $container = new Container();
-    $container->register(new ServicesProvider());
+    add_action('pp_pro_ads_init', function () {
+        $container = new Container();
+        $container->register(new ServicesProvider());
 
-    // Load the modules
-    $module = $container['module_top_banner'];
-    $module->init();
+        // Load the modules
+        $module = $container['module_top_banner'];
+        $module->init();
+    });
 
     define('PP_PRO_ADS_LOADED', true);
 }

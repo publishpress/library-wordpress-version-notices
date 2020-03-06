@@ -36,10 +36,19 @@ use PPProAds\Template\TemplateInvalidArgumentsException;
  */
 class Module implements AdInterface
 {
+    const SETTINGS_FILTER = 'pp_pro_ads_top_banner_settings';
+
+    const DISPLAY_ACTION = 'pp_pro_ads_display_top_banner';
+
     /**
      * @var TemplateLoaderInterface
      */
     private $templateLoader;
+
+    /**
+     * @var array
+     */
+    private $settings = [];
 
     public function __construct(TemplateLoaderInterface $templateLoader)
     {
@@ -48,12 +57,11 @@ class Module implements AdInterface
 
     public function init()
     {
-        $this->addHooks();
-    }
+        add_action(self::DISPLAY_ACTION, [$this, 'display'], 10, 2);
+        add_action('admin_enqueue_scripts', [$this, 'adminEnqueueStyle']);
+        add_action('in_admin_header', [$this, 'adminHeader']);
 
-    private function addHooks()
-    {
-        add_action('pp_pro_ads_display_top_banner', [$this, 'display'], 10, 2);
+        $this->settings = apply_filters(self::SETTINGS_FILTER, []);
     }
 
     /**
@@ -72,5 +80,52 @@ class Module implements AdInterface
         ];
 
         $this->templateLoader->displayOutput('TopBanner', 'ad', $context);
+    }
+
+    private function executeOnValidConditions(callable $callback)
+    {
+        foreach ($this->settings as $pluginName => $setting) {
+            foreach ($setting['conditions'] as $vars) {
+                if ($vars === true) {
+                    $callback($setting);
+                    return;
+                }
+
+                // Check each GET var
+                $validVars = 0;
+                foreach ($vars as $var => $value) {
+                    if (!isset($_GET[$var]) || $_GET[$var] !== $value) {
+                        break;
+                    }
+
+                    $validVars++;
+                }
+                if ($validVars === count($vars)) {
+                    $callback($setting);
+                    return;
+                }
+            }
+        }
+    }
+
+    public function adminEnqueueStyle()
+    {
+        $this->executeOnValidConditions(function ($settings) {
+            wp_enqueue_style(
+                'pp-pro-ads-top-banner',
+                dirname(dirname(dirname(plugin_dir_url(__FILE__)))) . DIRECTORY_SEPARATOR . 'assets/css/admin.css',
+                false,
+                PP_PRO_ADS_VERSION
+            );
+        });
+    }
+
+    public function adminHeader()
+    {
+        $this->executeOnValidConditions(function ($settings) {
+            do_action(self::DISPLAY_ACTION, $settings['message'], $settings['link']);
+        });
+
+        return;
     }
 }

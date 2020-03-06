@@ -4,6 +4,7 @@ namespace Module\TopBanner;
 
 use Pimple\Container;
 use PPProAds\Module\AdInterface;
+use PPProAds\Module\TopBanner\Module;
 use PPProAds\ServicesProvider;
 use PPProAds\Template\TemplateInvalidArgumentsException;
 
@@ -39,12 +40,20 @@ class ModuleTest extends \Codeception\TestCase\WPTestCase
     }
 
     // Tests
-    public function test_module_display_hooks_is_defined()
+    public function test_module_enqueue_admin_style()
+    {
+        do_action('admin_enqueue_scripts');
+
+        $wp_styles = wp_styles();
+        $this->assertContains('pp-pro-ads-top-banner', $wp_styles->queue);
+    }
+
+    public function test_module_add_action_to_display()
     {
         global $wp_filter;
 
-        $this->assertArrayHasKey('pp_pro_ads_display_top_banner', $wp_filter,
-            'The action pp_pro_ads_display_top_banner is not defined');
+        $this->assertArrayHasKey(Module::DISPLAY_ACTION, $wp_filter,
+            'The actionModule::self::DISPLAY_ACTION is not defined');
     }
 
     public function test_module_display_with_no_arguments_throws_exception()
@@ -67,7 +76,7 @@ class ModuleTest extends \Codeception\TestCase\WPTestCase
         ob_start();
         $this->module->display($message, $link);
         $output   = ob_get_clean();
-        $expected = '<div id="pp-pro-ads-top-banner">You\'re using The Test Free. Please, <a href="http://example.com/upgrade" target="_blank">upgrade to pro</a>.</div>';
+        $expected = '<div class="pp-pro-ads-top-banner">You\'re using The Test Free. Please, <a href="http://example.com/upgrade" target="_blank">upgrade to pro</a>.</div>';
 
         $this->assertNotEmpty($output);
         $this->assertIsString($output);
@@ -80,7 +89,7 @@ class ModuleTest extends \Codeception\TestCase\WPTestCase
 
         try {
             ob_start();
-            do_action('pp_pro_ads_display_top_banner');
+            do_action(Module::DISPLAY_ACTION);
         } finally {
             ob_end_clean();
         }
@@ -92,9 +101,9 @@ class ModuleTest extends \Codeception\TestCase\WPTestCase
         $link    = 'http://example.com/upgrade';
 
         ob_start();
-        do_action('pp_pro_ads_display_top_banner', $message, $link);
+        do_action(Module::DISPLAY_ACTION, $message, $link);
         $output   = ob_get_clean();
-        $expected = '<div id="pp-pro-ads-top-banner">You\'re using The Test Free. Please, <a href="http://example.com/upgrade" target="_blank">upgrade to pro</a>.</div>';
+        $expected = '<div class="pp-pro-ads-top-banner">You\'re using The Test Free. Please, <a href="http://example.com/upgrade" target="_blank">upgrade to pro</a>.</div>';
 
         $this->assertNotEmpty($output);
         $this->assertIsString($output);
@@ -107,9 +116,9 @@ class ModuleTest extends \Codeception\TestCase\WPTestCase
         $linkA    = 'http://example.com/upgrade-a';
 
         ob_start();
-        do_action('pp_pro_ads_display_top_banner', $messageA, $linkA);
+        do_action(Module::DISPLAY_ACTION, $messageA, $linkA);
         $output   = ob_get_clean();
-        $expected = '<div id="pp-pro-ads-top-banner">You\'re using The Test A Free. Please, <a href="http://example.com/upgrade-a" target="_blank">upgrade to pro</a>.</div>';
+        $expected = '<div class="pp-pro-ads-top-banner">You\'re using The Test A Free. Please, <a href="http://example.com/upgrade-a" target="_blank">upgrade to pro</a>.</div>';
 
         $this->assertNotEmpty($output);
         $this->assertIsString($output);
@@ -119,9 +128,9 @@ class ModuleTest extends \Codeception\TestCase\WPTestCase
         $linkB    = 'http://example.com/upgrade-b';
 
         ob_start();
-        do_action('pp_pro_ads_display_top_banner', $messageB, $linkB);
+        do_action(Module::DISPLAY_ACTION, $messageB, $linkB);
         $output   = ob_get_clean();
-        $expected = '<div id="pp-pro-ads-top-banner">You\'re using The Test B Free. Please, <a href="http://example.com/upgrade-b" target="_blank">upgrade to pro</a>.</div>';
+        $expected = '<div class="pp-pro-ads-top-banner">You\'re using The Test B Free. Please, <a href="http://example.com/upgrade-b" target="_blank">upgrade to pro</a>.</div>';
 
         $this->assertNotEmpty($output);
         $this->assertIsString($output);

@@ -34,7 +34,6 @@ class ServicesProvider implements ServiceProviderInterface
 {
     public function register(Container $pimple)
     {
-
         $pimple['TEMPLATES_PATH'] = function (Container $c) {
             return PP_PRO_ADS_BASE_PATH . DIRECTORY_SEPARATOR . 'templates';
         };

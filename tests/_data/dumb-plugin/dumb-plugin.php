@@ -31,6 +31,23 @@
  */
 
 if (!defined('PP_PRO_ADS_LOADED')) {
+    // @todo: Load only in the admin
     require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'publishpress' . DIRECTORY_SEPARATOR
         . 'wordpress-pro-plugins-ads' . DIRECTORY_SEPARATOR . 'includes.php';
+
+    add_filter(\PPProAds\Module\TopBanner\Module::SETTINGS_FILTER, function ($settings) {
+        $settings['dumb-plugin'] = [
+            'message'    => 'You\'re using the Dumb Plugin Free. %sUpgrade to Pro%s',
+            'link'       => 'http://example.com/upgrade',
+            'conditions' => [
+                [
+                    'page' => 'pp-modules-settings',
+                ]
+            ]
+        ];
+
+        return $settings;
+    });
+
+    do_action('pp_pro_ads_init');
 }
