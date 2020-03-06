@@ -37,14 +37,13 @@ if (!defined('PP_PRO_ADS_LOADED')) {
 
     add_filter(\PPProAds\Module\TopBanner\Module::SETTINGS_FILTER, function ($settings) {
         $settings['dumb-plugin'] = [
-            'message' => 'You\'re using the Dumb Plugin Free. %sUpgrade to Pro%s',
+            'message' => 'You\'re using Dumb Plugin Free. Please, %supgrade to pro%s.',
             'link'    => 'http://example.com/upgrade',
             'screens' => [
                 [
-                    'base' => 'publishpress_page_pp-modules-settings',
-                ],
-                [
-                    'base' => 'publishpress_page_pp-manage-roles',
+                    'base'      => 'edit',
+                    'id'        => 'edit-post',
+                    'post_type' => 'post',
                 ],
             ]
         ];

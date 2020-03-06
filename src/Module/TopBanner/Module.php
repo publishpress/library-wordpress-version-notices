@@ -93,7 +93,6 @@ class Module implements AdInterface
                     return;
                 }
 
-                // Check each GET var
                 $validVars = 0;
                 foreach ($screenParams as $var => $value) {
                     if (isset($screen->$var) && $screen->$var === $value) {

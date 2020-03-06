@@ -40,8 +40,22 @@ class ModuleTest extends \Codeception\TestCase\WPTestCase
     }
 
     // Tests
-    public function test_module_enqueue_admin_style()
+    public function test_module_dont_enqueue_admin_style_on_invalid_page()
     {
+        // Force a valid page - based on the Dumb plugin
+        set_current_screen('users.php');
+
+        do_action('admin_enqueue_scripts');
+
+        $wp_styles = wp_styles();
+        $this->assertNotContains('pp-pro-ads-top-banner', $wp_styles->queue);
+    }
+
+    public function test_module_enqueue_admin_style_on_valid_page()
+    {
+        // Force a valid page - based on the Dumb plugin
+        set_current_screen('edit.php');
+
         do_action('admin_enqueue_scripts');
 
         $wp_styles = wp_styles();
@@ -70,13 +84,19 @@ class ModuleTest extends \Codeception\TestCase\WPTestCase
 
     public function test_module_display_with_arguments_returns_output()
     {
-        $message = 'You\'re using The Test Free. Please, %supgrade to pro%s.';
+        $message = 'You\'re using Dumb Plugin Free. Please, %supgrade to pro%s.';
         $link    = 'http://example.com/upgrade';
 
         ob_start();
         $this->module->display($message, $link);
         $output   = ob_get_clean();
-        $expected = '<div class="pp-pro-ads-top-banner">You\'re using The Test Free. Please, <a href="http://example.com/upgrade" target="_blank">upgrade to pro</a>.</div>';
+        $expected = <<<OUTPUT
+<div class="pp-pro-ads-top-banner">
+    <span class="pp-pro-ads-top-banner-message">You're using Dumb Plugin Free. Please, <a href="http://example.com/upgrade" target="_blank">upgrade to pro</a>.</span>
+    <button type="button" class="dismiss" title=""
+            data-page="overview"></button>
+</div>
+OUTPUT;
 
         $this->assertNotEmpty($output);
         $this->assertIsString($output);
@@ -97,13 +117,19 @@ class ModuleTest extends \Codeception\TestCase\WPTestCase
 
     public function test_module_display_with_arguments_returns_output_for_action()
     {
-        $message = 'You\'re using The Test Free. Please, %supgrade to pro%s.';
+        $message = 'You\'re using Dumb Plugin Free. Please, %supgrade to pro%s.';
         $link    = 'http://example.com/upgrade';
 
         ob_start();
         do_action(Module::DISPLAY_ACTION, $message, $link);
         $output   = ob_get_clean();
-        $expected = '<div class="pp-pro-ads-top-banner">You\'re using The Test Free. Please, <a href="http://example.com/upgrade" target="_blank">upgrade to pro</a>.</div>';
+        $expected = <<<OUTPUT
+<div class="pp-pro-ads-top-banner">
+    <span class="pp-pro-ads-top-banner-message">You're using Dumb Plugin Free. Please, <a href="http://example.com/upgrade" target="_blank">upgrade to pro</a>.</span>
+    <button type="button" class="dismiss" title=""
+            data-page="overview"></button>
+</div>
+OUTPUT;
 
         $this->assertNotEmpty($output);
         $this->assertIsString($output);
@@ -112,25 +138,70 @@ class ModuleTest extends \Codeception\TestCase\WPTestCase
 
     public function test_module_display_with_arguments_returns_output_for_action_and_multiple_plugins()
     {
-        $messageA = 'You\'re using The Test A Free. Please, %supgrade to pro%s.';
+        $messageA = 'You\'re using Test A Free. Please, %supgrade to pro%s.';
         $linkA    = 'http://example.com/upgrade-a';
 
         ob_start();
         do_action(Module::DISPLAY_ACTION, $messageA, $linkA);
         $output   = ob_get_clean();
-        $expected = '<div class="pp-pro-ads-top-banner">You\'re using The Test A Free. Please, <a href="http://example.com/upgrade-a" target="_blank">upgrade to pro</a>.</div>';
+        $expected = <<<OUTPUT
+<div class="pp-pro-ads-top-banner">
+    <span class="pp-pro-ads-top-banner-message">You're using Test A Free. Please, <a href="http://example.com/upgrade-a" target="_blank">upgrade to pro</a>.</span>
+    <button type="button" class="dismiss" title=""
+            data-page="overview"></button>
+</div>
+OUTPUT;
 
         $this->assertNotEmpty($output);
         $this->assertIsString($output);
         $this->assertEquals($expected, $output);
 
-        $messageB = 'You\'re using The Test B Free. Please, %supgrade to pro%s.';
+        $messageB = 'You\'re using Test B Free. Please, %supgrade to pro%s.';
         $linkB    = 'http://example.com/upgrade-b';
 
         ob_start();
         do_action(Module::DISPLAY_ACTION, $messageB, $linkB);
         $output   = ob_get_clean();
-        $expected = '<div class="pp-pro-ads-top-banner">You\'re using The Test B Free. Please, <a href="http://example.com/upgrade-b" target="_blank">upgrade to pro</a>.</div>';
+        $expected = <<<OUTPUT
+<div class="pp-pro-ads-top-banner">
+    <span class="pp-pro-ads-top-banner-message">You're using Test B Free. Please, <a href="http://example.com/upgrade-b" target="_blank">upgrade to pro</a>.</span>
+    <button type="button" class="dismiss" title=""
+            data-page="overview"></button>
+</div>
+OUTPUT;
+
+        $this->assertNotEmpty($output);
+        $this->assertIsString($output);
+        $this->assertEquals($expected, $output);
+    }
+
+    public function test_module_doesnt_display_the_ad_on_invalid_page()
+    {
+        // Force a valid page - based on the Dumb plugin
+        set_current_screen('users.php');
+
+        ob_start();
+        do_action('in_admin_header');
+        $output = ob_get_clean();
+
+        $this->assertEmpty($output);
+    }
+
+    public function test_module_displays_the_ad_on_valid_page()
+    {
+        // Force a valid page - based on the Dumb plugin
+        set_current_screen('edit.php');
+
+        ob_start();
+        do_action('in_admin_header');
+        $output = ob_get_clean();
+        $expected = <<<OUTPUT
+<div class="pp-pro-ads-top-banner">
+    <span class="pp-pro-ads-top-banner-message">You're using Dumb Plugin Free. Please, <a href="http://example.com/upgrade" target="_blank">upgrade to pro</a>.</span>
+    <button type="button" class="dismiss" title=""
+            data-page="overview"></button>
+</div>
+OUTPUT;
 
         $this->assertNotEmpty($output);
         $this->assertIsString($output);
