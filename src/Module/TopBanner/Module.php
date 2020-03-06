@@ -27,6 +27,7 @@ namespace PPProAds\Module\TopBanner;
 
 use PPProAds\Module\AdInterface;
 use PPProAds\Template\TemplateLoaderInterface;
+use PPProAds\Template\TemplateInvalidArgumentsException;
 
 /**
  * Class Module
@@ -45,13 +46,31 @@ class Module implements AdInterface
         $this->templateLoader = $templateLoader;
     }
 
-    public function addHooks()
+    public function init()
     {
-        add_action('pp_pro_ads_display_top_banner', [$this, 'display']);
+        $this->addHooks();
     }
 
-    public function display()
+    private function addHooks()
     {
-        $this->templateLoader->displayOutput('TopBanner', 'ad');
+        add_action('pp_pro_ads_display_top_banner', [$this, 'display'], 10, 2);
+    }
+
+    /**
+     * @param string $message
+     * @param string $linkURL
+     */
+    public function display($message = '', $linkURL = '')
+    {
+        if (empty($message) || empty($linkURL)) {
+            throw new TemplateInvalidArgumentsException();
+        }
+
+        $context = [
+            'message' => $message,
+            'linkURL' => $linkURL
+        ];
+
+        $this->templateLoader->displayOutput('TopBanner', 'ad', $context);
     }
 }

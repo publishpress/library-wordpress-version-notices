@@ -23,28 +23,11 @@
  * @copyright   Copyright (c) 2020 PublishPress. All rights reserved.
  **/
 
-namespace PPProAds;
+namespace PPProAds\Template;
 
-use Pimple\Container;
-use Pimple\ServiceProviderInterface;
-use PPProAds\Module\TopBanner\Module as TopBannerModule;
-use PPProAds\Template\TemplateLoader;
+use RuntimeException;
 
-class ServicesProvider implements ServiceProviderInterface
+class TemplateInvalidArgumentsException extends RuntimeException
 {
-    public function register(Container $pimple)
-    {
 
-        $pimple['TEMPLATES_PATH'] = function (Container $c) {
-            return PP_PRO_ADS_BASE_PATH . DIRECTORY_SEPARATOR . 'templates';
-        };
-
-        $pimple['module_top_banner'] = function (Container $c) {
-            return new TopBannerModule($c['template_loader']);
-        };
-
-        $pimple['template_loader'] = function (Container $c) {
-            return new TemplateLoader($c['TEMPLATES_PATH']);
-        };
-    }
 }

@@ -47,7 +47,7 @@ if (!defined('PP_PRO_ADS_LOADED')) {
 
     // Load the modules
     $module = $container['module_top_banner'];
-    $module->addHooks();
+    $module->init();
 
     define('PP_PRO_ADS_LOADED', true);
 }

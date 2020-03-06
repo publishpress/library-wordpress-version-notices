@@ -27,7 +27,11 @@ namespace PPProAds\Module;
 
 interface AdInterface
 {
-    public function addHooks();
+    public function init();
 
-    public function display();
+    /**
+     * @param string $message
+     * @param string $linkURL
+     */
+    public function display($message = '', $linkURL = '');
 }
