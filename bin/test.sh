@@ -2,7 +2,6 @@
 
 # Copy the dumb plugin into the test site
 echo 'Copying the dumb plugin'
-rm -rf ~/Volumes/wordpress_tests/wp-content/plugins/dumb-plugin
 rsync -a tests/_data/dumb-plugin ~/Volumes/wordpress_tests/wp-content/plugins/
 
 # Copy the library into the dumb plugin
