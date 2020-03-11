@@ -131,13 +131,6 @@ class Module implements AdInterface
                 false,
                 PP_PRO_ADS_VERSION
             );
-
-            wp_enqueue_script(
-                'pp-pro-ads-top-banner-script',
-                $assetsPath . '/js/admin.js',
-                false,
-                PP_PRO_ADS_VERSION
-            );
         }
     }
 

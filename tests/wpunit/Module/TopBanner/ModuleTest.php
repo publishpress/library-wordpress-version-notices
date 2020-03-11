@@ -63,9 +63,6 @@ class ModuleTest extends \Codeception\TestCase\WPTestCase
 
         $wp_styles = wp_styles();
         $this->assertContains('pp-pro-ads-top-banner-style', $wp_styles->queue);
-
-        $wp_scripts = wp_scripts();
-        $this->assertContains('pp-pro-ads-top-banner-script', $wp_scripts->queue);
     }
 
     public function test_module_add_action_to_display()
@@ -93,8 +90,6 @@ class ModuleTest extends \Codeception\TestCase\WPTestCase
         $expected = <<<OUTPUT
 <div class="pp-pro-ads-top-banner">
     <span class="pp-pro-ads-top-banner-message">You're using Dumb Plugin Free. Please, <a href="http://example.com/upgrade" target="_blank">upgrade to pro</a>.</span>
-    <button type="button" class="dismiss" title=""
-            data-page="overview"></button>
 </div>
 OUTPUT;
 
@@ -123,8 +118,6 @@ OUTPUT;
         $expected = <<<OUTPUT
 <div class="pp-pro-ads-top-banner">
     <span class="pp-pro-ads-top-banner-message">You're using Dumb Plugin Free. Please, <a href="http://example.com/upgrade" target="_blank">upgrade to pro</a>.</span>
-    <button type="button" class="dismiss" title=""
-            data-page="overview"></button>
 </div>
 OUTPUT;
 
@@ -141,8 +134,6 @@ OUTPUT;
         $expected = <<<OUTPUT
 <div class="pp-pro-ads-top-banner">
     <span class="pp-pro-ads-top-banner-message">You're using Test A Free. Please, <a href="http://example.com/upgrade-a" target="_blank">upgrade to pro</a>.</span>
-    <button type="button" class="dismiss" title=""
-            data-page="overview"></button>
 </div>
 OUTPUT;
 
@@ -155,8 +146,6 @@ OUTPUT;
         $expected = <<<OUTPUT
 <div class="pp-pro-ads-top-banner">
     <span class="pp-pro-ads-top-banner-message">You're using Test B Free. Please, <a href="http://example.com/upgrade-b" target="_blank">upgrade to pro</a>.</span>
-    <button type="button" class="dismiss" title=""
-            data-page="overview"></button>
 </div>
 OUTPUT;
 
@@ -184,8 +173,6 @@ OUTPUT;
         $expected = <<<OUTPUT
 <div class="pp-pro-ads-top-banner">
     <span class="pp-pro-ads-top-banner-message">You're using Dumb Plugin One Free. Please, <a href="http://example.com/upgrade" target="_blank">upgrade to pro</a>.</span>
-    <button type="button" class="dismiss" title=""
-            data-page="overview"></button>
 </div>
 OUTPUT;
 
