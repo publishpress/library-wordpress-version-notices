@@ -14,3 +14,28 @@
 .pp-pro-ads-top-banner a {
     color: #655997 !important;
 }
+
+.pp-pro-ads-top-banner .dismiss {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    padding: 5px;
+    margin-top: 1px;
+    background: 0 0;
+    color: #72777c;
+    cursor: pointer;
+}
+
+.pp-pro-ads-top-banner .dismiss:before {
+    background: 0 0;
+    color: #72777c;
+    content: "\f335";
+    display: block;
+    font: normal 20px/20px dashicons;
+    speak: none;
+    height: 20px;
+    text-align: center;
+    width: 20px;
+    -webkit-font-smoothing: antialiased;
+}

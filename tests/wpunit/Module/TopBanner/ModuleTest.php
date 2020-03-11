@@ -40,26 +40,32 @@ class ModuleTest extends \Codeception\TestCase\WPTestCase
     }
 
     // Tests
-    public function test_module_dont_enqueue_admin_style_on_invalid_page()
+    public function test_module_dont_enqueue_admin_assets_on_invalid_page()
     {
         // Force a valid page - based on the Dumb plugin
         set_current_screen('users.php');
 
+        do_action('admin_init');
         do_action('admin_enqueue_scripts');
 
         $wp_styles = wp_styles();
-        $this->assertNotContains('pp-pro-ads-top-banner', $wp_styles->queue);
+        $this->assertNotContains('pp-pro-ads-top-banner-style', $wp_styles->queue);
+        $this->assertNotContains('pp-pro-ads-top-banner-script', $wp_styles->queue);
     }
 
-    public function test_module_enqueue_admin_style_on_valid_page()
+    public function test_module_enqueue_admin_assets_on_valid_page()
     {
         // Force a valid page - based on the Dumb plugin
         set_current_screen('edit.php');
 
+        do_action('admin_init');
         do_action('admin_enqueue_scripts');
 
         $wp_styles = wp_styles();
-        $this->assertContains('pp-pro-ads-top-banner', $wp_styles->queue);
+        $this->assertContains('pp-pro-ads-top-banner-style', $wp_styles->queue);
+
+        $wp_scripts = wp_scripts();
+        $this->assertContains('pp-pro-ads-top-banner-script', $wp_scripts->queue);
     }
 
     public function test_module_add_action_to_display()
@@ -67,7 +73,7 @@ class ModuleTest extends \Codeception\TestCase\WPTestCase
         global $wp_filter;
 
         $this->assertArrayHasKey(Module::DISPLAY_ACTION, $wp_filter,
-            'The actionModule::self::DISPLAY_ACTION is not defined');
+            'The action is not defined');
     }
 
     public function test_module_display_with_no_arguments_throws_exception()
@@ -162,19 +168,22 @@ OUTPUT;
 
     public function test_module_doesnt_display_the_ad_on_invalid_page()
     {
-        $this->expectOutputString('');
-
         // Force a valid page - based on the Dumb plugin
         set_current_screen('users.php');
 
+        ob_start();
         do_action('in_admin_header');
+
+        $output = ob_get_clean();
+
+        $this->assertStringNotContainsString('You\'re using Dumb Plugin', $output);
     }
 
     public function test_module_displays_the_ad_on_valid_page()
     {
         $expected = <<<OUTPUT
 <div class="pp-pro-ads-top-banner">
-    <span class="pp-pro-ads-top-banner-message">You're using Dumb Plugin Free. Please, <a href="http://example.com/upgrade" target="_blank">upgrade to pro</a>.</span>
+    <span class="pp-pro-ads-top-banner-message">You're using Dumb Plugin One Free. Please, <a href="http://example.com/upgrade" target="_blank">upgrade to pro</a>.</span>
     <button type="button" class="dismiss" title=""
             data-page="overview"></button>
 </div>

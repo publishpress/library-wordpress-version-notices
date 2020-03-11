@@ -2,6 +2,6 @@
 
 bin/update-code-for-tests.sh
 
-echo 'Running the tests'
+echo 'Running the wpunit tests'
 echo '-------------------------------------------'
-vendor/bin/codecept run
+vendor/bin/codecept run wpunit

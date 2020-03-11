@@ -1,12 +1,5 @@
 <?php
 /**
- * Plugin Name: Dumb Plugin
- * Plugin URI: https://publishpress.com/
- * Description: Dumb plugin for testing the library
- * Author: PublishPress
- * Author URI: https://publishpress.com
- * Version: 0.1.0
- *
  * Copyright (c) 2020 PublishPress
  *
  * GNU General Public License, Free Software Foundation <http://creativecommons.org/licenses/GPL/2.0/>
@@ -30,26 +23,24 @@
  * @copyright   Copyright (C) 2020 PublishPress. All rights reserved.
  */
 
+// @todo: Load only in the admin
 if (!defined('PP_PRO_ADS_LOADED')) {
-    // @todo: Load only in the admin
     require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'publishpress' . DIRECTORY_SEPARATOR
         . 'wordpress-pro-plugins-ads' . DIRECTORY_SEPARATOR . 'includes.php';
-
-    add_filter(\PPProAds\Module\TopBanner\Module::SETTINGS_FILTER, function ($settings) {
-        $settings['dumb-plugin'] = [
-            'message' => 'You\'re using Dumb Plugin Free. Please, %supgrade to pro%s.',
-            'link'    => 'http://example.com/upgrade',
-            'screens' => [
-                [
-                    'base'      => 'edit',
-                    'id'        => 'edit-post',
-                    'post_type' => 'post',
-                ],
-            ]
-        ];
-
-        return $settings;
-    });
-
-    do_action('pp_pro_ads_init');
 }
+
+add_filter(\PPProAds\Module\TopBanner\Module::SETTINGS_FILTER, function ($settings) {
+    $settings['dumb-plugin-two'] = [
+        'message' => 'You\'re using Dumb Plugin Two Free. Please, %supgrade to pro%s.',
+        'link'    => 'http://example.com/upgrade',
+        'screens' => [
+            [
+                'base'      => 'edit',
+                'id'        => 'edit-post',
+                'post_type' => 'page',
+            ],
+        ]
+    ];
+
+    return $settings;
+});

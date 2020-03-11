@@ -59,8 +59,12 @@ class Module implements AdInterface
     {
         add_action(self::DISPLAY_ACTION, [$this, 'display'], 10, 2);
         add_action('admin_enqueue_scripts', [$this, 'adminEnqueueStyle']);
-        add_action('in_admin_header', [$this, 'adminHeader']);
+        add_action('in_admin_header', [$this, 'displayTopBanner']);
+        add_action('admin_init', [$this, 'collectTheSettings'], 5);
+    }
 
+    public function collectTheSettings()
+    {
         $this->settings = apply_filters(self::SETTINGS_FILTER, []);
     }
 
@@ -82,15 +86,22 @@ class Module implements AdInterface
         $this->templateLoader->displayOutput('TopBanner', 'ad', $context);
     }
 
-    private function executeOnValidConditions(callable $callback)
+    /**
+     * @return array|false
+     */
+    private function isValidScreen()
     {
         $screen = get_current_screen();
+
+        if (defined('STOP')) {
+            var_dump($screen);
+            var_dump($this->settings); die;
+        }
 
         foreach ($this->settings as $pluginName => $setting) {
             foreach ($setting['screens'] as $screenParams) {
                 if ($screenParams === true) {
-                    $callback($setting);
-                    return;
+                    return $setting;
                 }
 
                 $validVars = 0;
@@ -101,31 +112,39 @@ class Module implements AdInterface
                 }
 
                 if ($validVars === count($screenParams)) {
-                    $callback($setting);
-                    return;
+                    return $setting;
                 }
             }
         }
+
+        return false;
     }
 
     public function adminEnqueueStyle()
     {
-        $this->executeOnValidConditions(function ($settings) {
+        if ($this->isValidScreen()) {
+            $assetsPath = dirname(dirname(dirname(plugin_dir_url(__FILE__)))) . DIRECTORY_SEPARATOR . 'assets';
+
             wp_enqueue_style(
-                'pp-pro-ads-top-banner',
-                dirname(dirname(dirname(plugin_dir_url(__FILE__)))) . DIRECTORY_SEPARATOR . 'assets/css/admin.css',
+                'pp-pro-ads-top-banner-style',
+                $assetsPath . '/css/admin.css',
                 false,
                 PP_PRO_ADS_VERSION
             );
-        });
+
+            wp_enqueue_script(
+                'pp-pro-ads-top-banner-script',
+                $assetsPath . '/js/admin.js',
+                false,
+                PP_PRO_ADS_VERSION
+            );
+        }
     }
 
-    public function adminHeader()
+    public function displayTopBanner()
     {
-        $this->executeOnValidConditions(function ($settings) {
+        if ($settings = $this->isValidScreen()) {
             do_action(self::DISPLAY_ACTION, $settings['message'], $settings['link']);
-        });
-
-        return;
+        }
     }
 }
