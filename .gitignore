@@ -16,12 +16,6 @@ Thumbs.db
 /src/vendor
 /packages
 
-codeception.yml
-tests/acceptance.suite.yml
-tests/functional.suite.yml
-tests/unit.suite.yml
-tests/wpunit.suite.yml
-
 .svn
 .git
 wpcom-helper.php
@@ -34,3 +28,4 @@ node_modules
 /vendor
 .idea
 /dist
+.env.testing

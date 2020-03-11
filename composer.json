@@ -2,7 +2,7 @@
   "name": "publishpress/wordpress-pro-plugins-ads",
   "description": "Library for displaying ads for Pro plugins in WordPress.",
   "type": "library",
-  "license": "GPL-2.0-or-later",
+  "license": "GPL-3.0-or-later",
   "authors": [
     {
       "name": "PublishPress",
@@ -15,9 +15,16 @@
     "preferred-install": "dist"
   },
   "autoload": {
+    "psr-4": {
+      "PPProAds\\": "src/"
+    }
   },
   "minimum-stability": "stable",
   "require": {
-    "php": ">=5.6.20"
+    "php": ">=5.6.20",
+    "pimple/pimple": "^3"
+  },
+  "require-dev": {
+    "lucatume/wp-browser": "^2.2"
   }
 }
