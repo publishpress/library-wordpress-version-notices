@@ -1,4 +1,4 @@
-WordPress Pro Plugins Ads
+WordPress Version Notices
 
 Copyright 2020 by the contributors
 
@@ -28,11 +28,11 @@ permission notices:
 
 and
 
-  WordPress Pro Plugins Ads
+  WordPress Version Notices
 
-  WordPress Pro Plugins Ads is Copyright (c) 2020 PublishPress
+  WordPress Version Notices is Copyright (c) 2020 PublishPress
 
-  WordPress Pro Plugins Ads is released under the GPL
+  WordPress Version Notices is released under the GPL
 
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 

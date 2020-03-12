@@ -1,12 +1,12 @@
 <?php
 
-namespace Module\TopBanner;
+namespace Module\TopNotice;
 
 use Pimple\Container;
-use PPProAds\Module\AdInterface;
-use PPProAds\Module\TopBanner\Module;
-use PPProAds\ServicesProvider;
-use PPProAds\Template\TemplateInvalidArgumentsException;
+use PPVersionNotices\Module\AdInterface;
+use PPVersionNotices\Module\TopNotice\Module;
+use PPVersionNotices\ServicesProvider;
+use PPVersionNotices\Template\TemplateInvalidArgumentsException;
 
 class ModuleTest extends \Codeception\TestCase\WPTestCase
 {
@@ -28,7 +28,7 @@ class ModuleTest extends \Codeception\TestCase\WPTestCase
         $container = new Container();
         $container->register(new ServicesProvider());
 
-        $this->module = $container['module_top_banner'];
+        $this->module = $container['module_top_notice'];
     }
 
     public function tearDown(): void

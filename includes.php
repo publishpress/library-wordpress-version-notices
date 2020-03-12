@@ -17,19 +17,19 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @package     PPProAds
+ * @package     PPVersionNotices
  * @category    Core
  * @author      PublishPress
  * @copyright   Copyright (c) 2020 PublishPress. All rights reserved.
  **/
 
 use Pimple\Container;
-use PPProAds\ServicesProvider;
+use PPVersionNotices\ServicesProvider;
 
-if (!defined('PP_PRO_ADS_LOADED')) {
-    define('PP_PRO_ADS_VERSION', '1.0.0');
-    define('PP_PRO_ADS_BASE_PATH', __DIR__);
-    define('PP_PRO_ADS_SRC_PATH', PP_PRO_ADS_BASE_PATH . DIRECTORY_SEPARATOR . 'src');
+if (!defined('PP_VERSION_NOTICES_LOADED')) {
+    define('PP_VERSION_NOTICES_VERSION', '1.0.0');
+    define('PP_VERSION_NOTICES_BASE_PATH', __DIR__);
+    define('PP_VERSION_NOTICES_SRC_PATH', PP_VERSION_NOTICES_BASE_PATH . DIRECTORY_SEPARATOR . 'src');
 
     if (file_exists(__DIR__ . DIRECTORY_SEPARATOR . 'vendor/autoload.php')) {
         /*
@@ -38,7 +38,7 @@ if (!defined('PP_PRO_ADS_LOADED')) {
          *
          * Make sure to update the class name after running composer update or dump autoload.
          */
-        if (!class_exists('ComposerAutoloaderInit106cb18fa68dde0bb4797e9eda58c780')) {
+        if (!class_exists('ComposerAutoloaderInit0ff73bab6c34dc502dbc3151d23f7930')) {
             require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
         }
     }
@@ -47,8 +47,8 @@ if (!defined('PP_PRO_ADS_LOADED')) {
     $container->register(new ServicesProvider());
 
     // Load the modules
-    $module = $container['module_top_banner'];
+    $module = $container['module_top_notice'];
     $module->init();
 
-    define('PP_PRO_ADS_LOADED', true);
+    define('PP_VERSION_NOTICES_LOADED', true);
 }

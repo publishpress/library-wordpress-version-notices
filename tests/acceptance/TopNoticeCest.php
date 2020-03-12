@@ -1,6 +1,6 @@
 <?php
 
-class TopBannerCest
+class TopNoticeCest
 {
     public function _before(AcceptanceTester $I)
     {
@@ -9,30 +9,30 @@ class TopBannerCest
         $I->activatePlugin(['dumb-plugin-one', 'dumb-plugin-two']);
     }
 
-    public function tryToSeeTheDashboardWithoutTheTopBanner(AcceptanceTester $I)
+    public function tryToSeeTheDashboardWithoutTheTopNotice(AcceptanceTester $I)
     {
         $I->loginAsAdmin();
         $I->amOnAdminPage('admin.php');
         $I->dontSee('You\'re using Dumb Plugin One Free');
     }
 
-    public function tryToSeeTheTopBannerForDumbPluginOne(AcceptanceTester $I)
+    public function tryToSeeTheTopNoticeForDumbPluginOne(AcceptanceTester $I)
     {
         $I->amOnAdminPage('edit.php?post_type=post');
         $I->see('You\'re using Dumb Plugin One Free', '.pp-version-notice-bold-purple-message');
         $I->dontSee('You\'re using Dumb Plugin Two Free', '.pp-version-notice-bold-purple-message');
 
-        $banners = $I->grabMultiple('.pp-version-notice-bold-purple-message');
-        $I->assertEquals(1, count($banners), 'Has more than one banner');
+        $notices = $I->grabMultiple('.pp-version-notice-bold-purple-message');
+        $I->assertEquals(1, count($notices), 'Has more than one notice');
     }
 
-    public function tryToSeeTheTopBannerForDumbPluginTwo(AcceptanceTester $I)
+    public function tryToSeeTheTopNoticeForDumbPluginTwo(AcceptanceTester $I)
     {
         $I->amOnAdminPage('edit.php?post_type=page');
         $I->see('You\'re using Dumb Plugin Two Free', '.pp-version-notice-bold-purple-message');
         $I->dontSee('You\'re using Dumb Plugin One Free', '.pp-version-notice-bold-purple-message');
 
-        $banners = $I->grabMultiple('.pp-version-notice-bold-purple-message');
-        $I->assertEquals(1, count($banners), 'Has more than one banner');
+        $notices = $I->grabMultiple('.pp-version-notice-bold-purple-message');
+        $I->assertEquals(1, count($notices), 'Has more than one notice');
     }
 }

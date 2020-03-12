@@ -17,28 +17,28 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @package     PPProAds
+ * @package     PPVersionNotices
  * @category    Core
  * @author      PublishPress
  * @copyright   Copyright (c) 2020 PublishPress. All rights reserved.
  **/
 
-namespace PPProAds\Module\TopBanner;
+namespace PPVersionNotices\Module\TopNotice;
 
-use PPProAds\Module\AdInterface;
-use PPProAds\Template\TemplateLoaderInterface;
-use PPProAds\Template\TemplateInvalidArgumentsException;
+use PPVersionNotices\Module\AdInterface;
+use PPVersionNotices\Template\TemplateLoaderInterface;
+use PPVersionNotices\Template\TemplateInvalidArgumentsException;
 
 /**
  * Class Module
  *
- * @package PPProAds
+ * @package PPVersionNotices
  */
 class Module implements AdInterface
 {
-    const SETTINGS_FILTER = 'pp_pro_ads_top_banner_settings';
+    const SETTINGS_FILTER = 'pp_version_notice_top_notice_settings';
 
-    const DISPLAY_ACTION = 'pp_pro_ads_display_top_banner';
+    const DISPLAY_ACTION = 'pp_version_notice_display_top_notice';
 
     /**
      * @var TemplateLoaderInterface
@@ -59,7 +59,7 @@ class Module implements AdInterface
     {
         add_action(self::DISPLAY_ACTION, [$this, 'display'], 10, 2);
         add_action('admin_enqueue_scripts', [$this, 'adminEnqueueStyle']);
-        add_action('in_admin_header', [$this, 'displayTopBanner']);
+        add_action('in_admin_header', [$this, 'displayTopNotice']);
         add_action('admin_init', [$this, 'collectTheSettings'], 5);
     }
 
@@ -83,7 +83,7 @@ class Module implements AdInterface
             'linkURL' => $linkURL
         ];
 
-        $this->templateLoader->displayOutput('TopBanner', 'ad', $context);
+        $this->templateLoader->displayOutput('top-notice', 'notice', $context);
     }
 
     /**
@@ -92,11 +92,6 @@ class Module implements AdInterface
     private function isValidScreen()
     {
         $screen = get_current_screen();
-
-        if (defined('STOP')) {
-            var_dump($screen);
-            var_dump($this->settings); die;
-        }
 
         foreach ($this->settings as $pluginName => $setting) {
             foreach ($setting['screens'] as $screenParams) {
@@ -127,14 +122,14 @@ class Module implements AdInterface
 
             wp_enqueue_style(
                 'pp-version-notice-bold-purple-style',
-                $assetsPath . '/css/admin.css',
+                $assetsPath . '/css/top-notice-bold-purple.css',
                 false,
-                PP_PRO_ADS_VERSION
+                PP_VERSION_NOTICES_VERSION
             );
         }
     }
 
-    public function displayTopBanner()
+    public function displayTopNotice()
     {
         if ($settings = $this->isValidScreen()) {
             do_action(self::DISPLAY_ACTION, $settings['message'], $settings['link']);

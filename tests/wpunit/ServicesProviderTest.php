@@ -15,7 +15,7 @@ class ServicesProviderTest extends \Codeception\TestCase\WPTestCase
         parent::setUp();
 
         $container       = new Pimple\Container();
-        $serviceProvider = new \PPProAds\ServicesProvider();
+        $serviceProvider = new \PPVersionNotices\ServicesProvider();
         $container->register($serviceProvider);
 
         $this->container = $container;
@@ -29,12 +29,12 @@ class ServicesProviderTest extends \Codeception\TestCase\WPTestCase
         parent::tearDown();
     }
 
-    public function test_module_top_banner_is_defined()
+    public function test_module_top_notice_is_defined()
     {
-        $this->assertArrayHasKey('module_top_banner', $this->container,
-            'Module TopBanner is not found in the container');
+        $this->assertArrayHasKey('module_top_notice', $this->container,
+            'Module TopNotice is not found in the container');
 
-        $this->assertIsObject($this->container['module_top_banner'], 'TopBanner module is not an object');
+        $this->assertIsObject($this->container['module_top_notice'], 'TopNotice module is not an object');
     }
 
     public function test_template_loader_is_defined()

@@ -25,7 +25,7 @@ class IncludesTest extends \Codeception\TestCase\WPTestCase
 
     public function test_library_being_loaded_by_the_plugin()
     {
-        $this->assertTrue(defined('PP_PRO_ADS_LOADED'), 'Library is not properly loaded');
-        $this->assertTrue(class_exists('PPProAds\\ServicesProvider'), 'ServicesProvider class was not found');
+        $this->assertTrue(defined('PP_VERSION_NOTICES_LOADED'), 'Library is not properly loaded');
+        $this->assertTrue(class_exists('PPVersionNotices\\ServicesProvider'), 'ServicesProvider class was not found');
     }
 }
