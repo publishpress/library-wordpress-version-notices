@@ -126,7 +126,7 @@ class Module implements AdInterface
             $assetsPath = dirname(dirname(dirname(plugin_dir_url(__FILE__)))) . DIRECTORY_SEPARATOR . 'assets';
 
             wp_enqueue_style(
-                'pp-pro-ads-top-banner-style',
+                'pp-version-notice-bold-purple-style',
                 $assetsPath . '/css/admin.css',
                 false,
                 PP_PRO_ADS_VERSION

@@ -19,20 +19,20 @@ class TopBannerCest
     public function tryToSeeTheTopBannerForDumbPluginOne(AcceptanceTester $I)
     {
         $I->amOnAdminPage('edit.php?post_type=post');
-        $I->see('You\'re using Dumb Plugin One Free', '.pp-pro-ads-top-banner-message');
-        $I->dontSee('You\'re using Dumb Plugin Two Free', '.pp-pro-ads-top-banner-message');
+        $I->see('You\'re using Dumb Plugin One Free', '.pp-version-notice-bold-purple-message');
+        $I->dontSee('You\'re using Dumb Plugin Two Free', '.pp-version-notice-bold-purple-message');
 
-        $banners = $I->grabMultiple('.pp-pro-ads-top-banner-message');
+        $banners = $I->grabMultiple('.pp-version-notice-bold-purple-message');
         $I->assertEquals(1, count($banners), 'Has more than one banner');
     }
 
     public function tryToSeeTheTopBannerForDumbPluginTwo(AcceptanceTester $I)
     {
         $I->amOnAdminPage('edit.php?post_type=page');
-        $I->see('You\'re using Dumb Plugin Two Free', '.pp-pro-ads-top-banner-message');
-        $I->dontSee('You\'re using Dumb Plugin One Free', '.pp-pro-ads-top-banner-message');
+        $I->see('You\'re using Dumb Plugin Two Free', '.pp-version-notice-bold-purple-message');
+        $I->dontSee('You\'re using Dumb Plugin One Free', '.pp-version-notice-bold-purple-message');
 
-        $banners = $I->grabMultiple('.pp-pro-ads-top-banner-message');
+        $banners = $I->grabMultiple('.pp-version-notice-bold-purple-message');
         $I->assertEquals(1, count($banners), 'Has more than one banner');
     }
 }

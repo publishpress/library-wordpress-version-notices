@@ -1,4 +1,4 @@
-.pp-pro-ads-top-banner {
+.pp-version-notice-bold-purple {
     background: #655897;
     height: 60px;
     box-sizing: border-box;
@@ -14,7 +14,7 @@
     margin-left: -20px;
 }
 
-.pp-pro-ads-top-banner a {
+.pp-version-notice-bold-purple a {
     color: #000 !important;
     background: #FCB223;
     font-weight: normal;
@@ -30,35 +30,35 @@
     white-space: nowrap;
 }
 
-.pp-pro-ads-top-banner a:hover {
+.pp-version-notice-bold-purple a:hover {
     color: #000 !important;
     background: #fcca46;
 }
 
 @media only screen and (max-width: 1008px) {
-    .pp-pro-ads-top-banner {
+    .pp-version-notice-bold-purple {
         height: 110px;
     }
 }
 
 @media only screen and (max-width: 780px) {
-    .pp-pro-ads-top-banner {
+    .pp-version-notice-bold-purple {
         height: 110px;
     }
 
-    .pp-pro-ads-top-banner a {
+    .pp-version-notice-bold-purple a {
         display: block;
     }
 }
 
 @media only screen and (max-width: 684px) {
-    .pp-pro-ads-top-banner {
+    .pp-version-notice-bold-purple {
         height: 140px;
     }
 }
 
 @media only screen and (max-width: 600px) {
-    .pp-pro-ads-top-banner {
+    .pp-version-notice-bold-purple {
         padding-top: 53px;
         height: 185px;
     }

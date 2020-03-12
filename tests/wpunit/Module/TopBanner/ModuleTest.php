@@ -49,8 +49,8 @@ class ModuleTest extends \Codeception\TestCase\WPTestCase
         do_action('admin_enqueue_scripts');
 
         $wp_styles = wp_styles();
-        $this->assertNotContains('pp-pro-ads-top-banner-style', $wp_styles->queue);
-        $this->assertNotContains('pp-pro-ads-top-banner-script', $wp_styles->queue);
+        $this->assertNotContains('pp-version-notice-bold-purple-style', $wp_styles->queue);
+        $this->assertNotContains('pp-version-notice-bold-purple-script', $wp_styles->queue);
     }
 
     public function test_module_enqueue_admin_assets_on_valid_page()
@@ -62,7 +62,7 @@ class ModuleTest extends \Codeception\TestCase\WPTestCase
         do_action('admin_enqueue_scripts');
 
         $wp_styles = wp_styles();
-        $this->assertContains('pp-pro-ads-top-banner-style', $wp_styles->queue);
+        $this->assertContains('pp-version-notice-bold-purple-style', $wp_styles->queue);
     }
 
     public function test_module_add_action_to_display()
@@ -88,8 +88,8 @@ class ModuleTest extends \Codeception\TestCase\WPTestCase
     public function test_module_display_with_arguments_returns_output()
     {
         $expected = <<<OUTPUT
-<div class="pp-pro-ads-top-banner">
-    <span class="pp-pro-ads-top-banner-message">You're using Dumb Plugin Free. Please, <a href="http://example.com/upgrade" target="_blank">upgrade to pro</a>.</span>
+<div class="pp-version-notice-bold-purple">
+    <span class="pp-version-notice-bold-purple-message">You're using Dumb Plugin Free. Please, <a href="http://example.com/upgrade" target="_blank">upgrade to pro</a>.</span>
 </div>
 OUTPUT;
 
@@ -116,8 +116,8 @@ OUTPUT;
     public function test_module_display_with_arguments_returns_output_for_action()
     {
         $expected = <<<OUTPUT
-<div class="pp-pro-ads-top-banner">
-    <span class="pp-pro-ads-top-banner-message">You're using Dumb Plugin Free. Please, <a href="http://example.com/upgrade" target="_blank">upgrade to pro</a>.</span>
+<div class="pp-version-notice-bold-purple">
+    <span class="pp-version-notice-bold-purple-message">You're using Dumb Plugin Free. Please, <a href="http://example.com/upgrade" target="_blank">upgrade to pro</a>.</span>
 </div>
 OUTPUT;
 
@@ -132,8 +132,8 @@ OUTPUT;
     public function test_module_display_with_arguments_returns_output_for_action_and_multiple_plugins()
     {
         $expected = <<<OUTPUT
-<div class="pp-pro-ads-top-banner">
-    <span class="pp-pro-ads-top-banner-message">You're using Test A Free. Please, <a href="http://example.com/upgrade-a" target="_blank">upgrade to pro</a>.</span>
+<div class="pp-version-notice-bold-purple">
+    <span class="pp-version-notice-bold-purple-message">You're using Test A Free. Please, <a href="http://example.com/upgrade-a" target="_blank">upgrade to pro</a>.</span>
 </div>
 OUTPUT;
 
@@ -144,8 +144,8 @@ OUTPUT;
 
         // --------------------------
         $expected = <<<OUTPUT
-<div class="pp-pro-ads-top-banner">
-    <span class="pp-pro-ads-top-banner-message">You're using Test B Free. Please, <a href="http://example.com/upgrade-b" target="_blank">upgrade to pro</a>.</span>
+<div class="pp-version-notice-bold-purple">
+    <span class="pp-version-notice-bold-purple-message">You're using Test B Free. Please, <a href="http://example.com/upgrade-b" target="_blank">upgrade to pro</a>.</span>
 </div>
 OUTPUT;
 
@@ -171,8 +171,8 @@ OUTPUT;
     public function test_module_displays_the_ad_on_valid_page()
     {
         $expected = <<<OUTPUT
-<div class="pp-pro-ads-top-banner">
-    <span class="pp-pro-ads-top-banner-message">You're using Dumb Plugin One Free. Please, <a href="http://example.com/upgrade" target="_blank">upgrade to pro</a>.</span>
+<div class="pp-version-notice-bold-purple">
+    <span class="pp-version-notice-bold-purple-message">You're using Dumb Plugin One Free. Please, <a href="http://example.com/upgrade" target="_blank">upgrade to pro</a>.</span>
 </div>
 OUTPUT;
 
