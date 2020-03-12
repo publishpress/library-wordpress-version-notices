@@ -17,13 +17,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @package     PPProAds
+ * @package     PPVersionNotices
  * @category    Core
  * @author      PublishPress
  * @copyright   Copyright (c) 2020 PublishPress. All rights reserved.
  **/
 
-namespace PPProAds\Module;
+namespace PPVersionNotices\Module;
 
 interface AdInterface
 {

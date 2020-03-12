@@ -17,22 +17,22 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @package     PPProAds
+ * @package     PPVersionNotices
  * @category    Core
  * @author      PublishPress
  * @copyright   Copyright (c) 2020 PublishPress. All rights reserved.
  **/
 
-namespace PPProAds\Module\Footer;
+namespace PPVersionNotices\Module\Footer;
 
-use PPProAds\Module\AdInterface;
-use PPProAds\Template\TemplateLoaderInterface;
-use PPProAds\Template\TemplateInvalidArgumentsException;
+use PPVersionNotices\Module\AdInterface;
+use PPVersionNotices\Template\TemplateLoaderInterface;
+use PPVersionNotices\Template\TemplateInvalidArgumentsException;
 
 /**
  * Class Module
  *
- * @package PPProAds
+ * @package PPVersionNotices
  */
 class Module implements AdInterface
 {

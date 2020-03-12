@@ -2,9 +2,9 @@
 
 namespace Template;
 
-use PPProAds\Template\TemplateLoader;
-use PPProAds\Template\TemplateLoaderInterface;
-use PPProAds\Template\TemplateNotFoundException;
+use PPVersionNotices\Template\TemplateLoader;
+use PPVersionNotices\Template\TemplateLoaderInterface;
+use PPVersionNotices\Template\TemplateNotFoundException;
 
 class TemplateLoaderTest extends \Codeception\TestCase\WPTestCase
 {
@@ -23,7 +23,7 @@ class TemplateLoaderTest extends \Codeception\TestCase\WPTestCase
         // Before...
         parent::setUp();
 
-        $templatePath = PP_PRO_ADS_BASE_PATH . DIRECTORY_SEPARATOR . 'tests' . DIRECTORY_SEPARATOR . '_data' .
+        $templatePath = PP_VERSION_NOTICES_BASE_PATH . DIRECTORY_SEPARATOR . 'tests' . DIRECTORY_SEPARATOR . '_data' .
             DIRECTORY_SEPARATOR . 'dumb-templates';
 
         $this->templateLoader = new TemplateLoader($templatePath);

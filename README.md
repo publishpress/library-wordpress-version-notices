@@ -1,4 +1,4 @@
-# WordPress Pro Plugins Ads
+# WordPress Version Notices
 
 
 ## Description
@@ -13,15 +13,15 @@ $ composer update --no-dev
 
 ## Integrating into a plugin
 
-Due to a conflict in the tests we didn't register the library in the Composer's autoload for now. You can manually require it and add a filter for the settings.
+Due to a conflict in the tests we didn't register the include file in the Composer's autoload for now. You can manually require it and add a filter for the settings.
 
 ```php
-if (!defined('PP_PRO_ADS_LOADED')) {
+if (!defined('PP_VERSION_NOTICES_LOADED')) {
     require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'publishpress' . DIRECTORY_SEPARATOR
-        . 'wordpress-pro-plugins-ads' . DIRECTORY_SEPARATOR . 'includes.php';
+        . 'wordpress-version-notices' . DIRECTORY_SEPARATOR . 'includes.php';
 }
 
-add_filter(\PPProAds\Module\TopBanner\Module::SETTINGS_FILTER, function ($settings) {
+add_filter(\PPVersionNotices\Module\TopNotice\Module::SETTINGS_FILTER, function ($settings) {
     $settings['dumb-plugin-one'] = [
         'message' => 'You\'re using Dumb Plugin One Free. Please, %supgrade to pro%s.',
         'link'    => 'http://example.com/upgrade',

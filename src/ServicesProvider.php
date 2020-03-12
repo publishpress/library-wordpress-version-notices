@@ -17,29 +17,29 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @package     PPProAds
+ * @package     PPVersionNotices
  * @category    Core
  * @author      PublishPress
  * @copyright   Copyright (c) 2020 PublishPress. All rights reserved.
  **/
 
-namespace PPProAds;
+namespace PPVersionNotices;
 
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
-use PPProAds\Module\TopBanner\Module as TopBannerModule;
-use PPProAds\Template\TemplateLoader;
+use PPVersionNotices\Module\TopNotice\Module as TopNoticeModule;
+use PPVersionNotices\Template\TemplateLoader;
 
 class ServicesProvider implements ServiceProviderInterface
 {
     public function register(Container $pimple)
     {
         $pimple['TEMPLATES_PATH'] = function (Container $c) {
-            return PP_PRO_ADS_BASE_PATH . DIRECTORY_SEPARATOR . 'templates';
+            return PP_VERSION_NOTICES_BASE_PATH . DIRECTORY_SEPARATOR . 'templates';
         };
 
-        $pimple['module_top_banner'] = function (Container $c) {
-            return new TopBannerModule($c['template_loader']);
+        $pimple['module_top_notice'] = function (Container $c) {
+            return new TopNoticeModule($c['template_loader']);
         };
 
         $pimple['template_loader'] = function (Container $c) {

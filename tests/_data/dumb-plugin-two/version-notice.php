@@ -24,12 +24,12 @@
  */
 
 // @todo: Load only in the admin
-if (!defined('PP_PRO_ADS_LOADED')) {
+if (!defined('PP_VERSION_NOTICES_LOADED')) {
     require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'publishpress' . DIRECTORY_SEPARATOR
-        . 'wordpress-pro-plugins-ads' . DIRECTORY_SEPARATOR . 'includes.php';
+        . 'wordpress-version-notices' . DIRECTORY_SEPARATOR . 'includes.php';
 }
 
-add_filter(\PPProAds\Module\TopBanner\Module::SETTINGS_FILTER, function ($settings) {
+add_filter(\PPVersionNotices\Module\TopNotice\Module::SETTINGS_FILTER, function ($settings) {
     $settings['dumb-plugin-two'] = [
         'message' => 'You\'re using Dumb Plugin Two Free. Please, %supgrade to pro%s.',
         'link'    => 'http://example.com/upgrade',

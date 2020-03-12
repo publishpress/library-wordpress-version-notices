@@ -31,7 +31,7 @@
  */
 
 if (!defined('DUMB_PLUGIN_TWO_LOADED')) {
-    require_once 'pro_ads.php';
+    require_once 'version-notice.php';
 
     define('DUMB_PLUGIN_TWO_LOADED', true);
 }
