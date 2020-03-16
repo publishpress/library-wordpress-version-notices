@@ -118,11 +118,9 @@ class Module implements AdInterface
     public function adminEnqueueStyle()
     {
         if ($this->isValidScreen()) {
-            $assetsPath = dirname(dirname(dirname(plugin_dir_url(__FILE__)))) . DIRECTORY_SEPARATOR . 'assets';
-
             wp_enqueue_style(
                 'pp-version-notice-bold-purple-style',
-                $assetsPath . '/css/top-notice-bold-purple.css',
+                PP_VERSION_NOTICES_BASE_URL . '/assets/css/top-notice-bold-purple.css',
                 false,
                 PP_VERSION_NOTICES_VERSION
             );

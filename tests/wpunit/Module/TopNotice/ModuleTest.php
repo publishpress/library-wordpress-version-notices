@@ -87,11 +87,7 @@ class ModuleTest extends \Codeception\TestCase\WPTestCase
 
     public function test_module_display_with_arguments_returns_output()
     {
-        $expected = <<<OUTPUT
-<div class="pp-version-notice-bold-purple">
-    <span class="pp-version-notice-bold-purple-message">You're using Dumb Plugin Free. Please, <a href="http://example.com/upgrade" target="_blank">upgrade to pro</a>.</span>
-</div>
-OUTPUT;
+        $expected = '<div class="pp-version-notice-bold-purple"><div class="pp-version-notice-bold-purple-message">You\'re using Dumb Plugin Free. Please, </div><div class="pp-version-notice-bold-purple-button"><a href="http://example.com/upgrade" target="_blank">upgrade to pro</a></div>.</div>';
 
         $this->expectOutputString($expected);
 
@@ -115,11 +111,7 @@ OUTPUT;
 
     public function test_module_display_with_arguments_returns_output_for_action()
     {
-        $expected = <<<OUTPUT
-<div class="pp-version-notice-bold-purple">
-    <span class="pp-version-notice-bold-purple-message">You're using Dumb Plugin Free. Please, <a href="http://example.com/upgrade" target="_blank">upgrade to pro</a>.</span>
-</div>
-OUTPUT;
+        $expected = '<div class="pp-version-notice-bold-purple"><div class="pp-version-notice-bold-purple-message">You\'re using Dumb Plugin Free. Please, </div><div class="pp-version-notice-bold-purple-button"><a href="http://example.com/upgrade" target="_blank">upgrade to pro</a></div>.</div>';
 
         $this->expectOutputString($expected);
 
@@ -170,11 +162,7 @@ OUTPUT;
 
     public function test_module_displays_the_ad_on_valid_page()
     {
-        $expected = <<<OUTPUT
-<div class="pp-version-notice-bold-purple">
-    <span class="pp-version-notice-bold-purple-message">You're using Dumb Plugin One Free. Please, <a href="http://example.com/upgrade" target="_blank">upgrade to pro</a>.</span>
-</div>
-OUTPUT;
+        $expected = '<div class="pp-version-notice-bold-purple"><div class="pp-version-notice-bold-purple-message">You\'re using Dumb Plugin One Free. Please, </div><div class="pp-version-notice-bold-purple-button"><a href="http://example.com/upgrade" target="_blank">upgrade to pro</a></div>.</div>';
 
         $this->expectOutputString($expected);
 
