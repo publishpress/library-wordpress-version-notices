@@ -1,8 +1,6 @@
 <?php
-$linkStart = '<a href="' . $linkURL . '" target="_blank">';
-$linkEnd   = '</a>';
-$message   = sprintf($message, $linkStart, $linkEnd);
+$linkStart = '</div><div class="pp-version-notice-bold-purple-button"><a href="' . $linkURL . '" target="_blank">';
+$linkEnd   = '</a></div>';
+$message   = sprintf('<div class="pp-version-notice-bold-purple-message">' . $message, $linkStart, $linkEnd);
 ?>
-<div class="pp-version-notice-bold-purple">
-    <span class="pp-version-notice-bold-purple-message"><?php echo $message; ?></span>
-</div>
+<div class="pp-version-notice-bold-purple"><?php echo $message; ?></div>

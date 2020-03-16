@@ -1,26 +1,23 @@
 .pp-version-notice-bold-purple {
     background: #655897;
-    height: 60px;
+    height: auto;
     box-sizing: border-box;
-    padding: 12px 7px 7px;
+    padding: 18px 7px 20px 7px;
     text-align: center;
     position: relative;
     overflow: hidden;
-    color: #fff;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 33px;
-    letter-spacing: 1px;
+    line-height: 20px;
     margin-left: -20px;
+    font-size: 16px;
+    color: #fff;
 }
 
-.pp-version-notice-bold-purple a {
-    color: #000 !important;
+.pp-version-notice-bold-purple .pp-version-notice-bold-purple-button a {
     background: #FCB223;
+    color: #000 !important;
     font-weight: normal;
     text-decoration: none;
     padding: 9px 12px;
-    margin-left: 5px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
@@ -30,36 +27,39 @@
     white-space: nowrap;
 }
 
-.pp-version-notice-bold-purple a:hover {
-    color: #000 !important;
+.pp-version-notice-bold-purple .pp-version-notice-bold-purple-button a:hover {
     background: #fcca46;
+    color: #000 !important;
 }
 
-@media only screen and (max-width: 1008px) {
-    .pp-version-notice-bold-purple {
-        height: 110px;
+@media only screen and (min-width: 1075px) {
+    .pp-version-notice-bold-purple-message,
+    .pp-version-notice-bold-purple-button {
+        display: inline-block;
+    }
+
+    .pp-version-notice-bold-purple-message {
+        margin-right: 5px;
     }
 }
 
-@media only screen and (max-width: 780px) {
-    .pp-version-notice-bold-purple {
-        height: 110px;
-    }
-
-    .pp-version-notice-bold-purple a {
+@media only screen and (max-width: 1074px) {
+    .pp-version-notice-bold-purple-message,
+    .pp-version-notice-bold-purple-button {
         display: block;
     }
-}
 
-@media only screen and (max-width: 684px) {
-    .pp-version-notice-bold-purple {
-        height: 140px;
+    .pp-version-notice-bold-purple-button {
+        margin-top: 20px;
+    }
+
+    .pp-version-notice-bold-purple-button a {
+        max-width: 170px;
     }
 }
 
 @media only screen and (max-width: 600px) {
     .pp-version-notice-bold-purple {
-        padding-top: 53px;
-        height: 185px;
+        padding-top: 60px;
     }
 }
