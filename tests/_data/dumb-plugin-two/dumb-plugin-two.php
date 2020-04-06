@@ -31,7 +31,26 @@
  */
 
 if (!defined('DUMB_PLUGIN_TWO_LOADED')) {
-    require_once 'version-notice.php';
+    // @todo: Load only in the admin
+    if (!defined('PP_VERSION_NOTICES_LOADED')) {
+        require_once __DIR__ . '/vendor/publishpress/wordpress-version-notices/includes.php';
+    }
+
+    add_filter(\PPVersionNotices\Module\TopNotice\Module::SETTINGS_FILTER, function ($settings) {
+        $settings['dumb-plugin-two'] = [
+            'message' => 'You\'re using Dumb Plugin Two Free. Please, %supgrade to pro%s.',
+            'link'    => 'http://example.com/upgrade',
+            'screens' => [
+                [
+                    'base'      => 'edit',
+                    'id'        => 'edit-page',
+                    'post_type' => 'page',
+                ],
+            ]
+        ];
+
+        return $settings;
+    });
 
     define('DUMB_PLUGIN_TWO_LOADED', true);
 }
