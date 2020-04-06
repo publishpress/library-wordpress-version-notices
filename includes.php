@@ -51,5 +51,8 @@ if (!defined('PP_VERSION_NOTICES_LOADED')) {
     $module = $container['module_top_notice'];
     $module->init();
 
+    $module = $container['module_menu_link'];
+    $module->init();
+
     define('PP_VERSION_NOTICES_LOADED', true);
 }
