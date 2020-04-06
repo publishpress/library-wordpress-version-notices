@@ -123,28 +123,24 @@ class ModuleTest extends \Codeception\TestCase\WPTestCase
 
     public function test_module_display_with_arguments_returns_output_for_action_and_multiple_plugins()
     {
-        $expected = <<<OUTPUT
-<div class="pp-version-notice-bold-purple">
-    <span class="pp-version-notice-bold-purple-message">You're using Test A Free. Please, <a href="http://example.com/upgrade-a" target="_blank">upgrade to pro</a>.</span>
-</div>
-OUTPUT;
+        $expected = '<div class="pp-version-notice-bold-purple"><div class="pp-version-notice-bold-purple-message">You\'re using Test A Free. Please, </div><div class="pp-version-notice-bold-purple-button"><a href="http://example.com/upgrade-a" target="_blank">upgrade to pro</a></div>.</div>';
 
         $messageA = 'You\'re using Test A Free. Please, %supgrade to pro%s.';
         $linkA    = 'http://example.com/upgrade-a';
 
         do_action(Module::DISPLAY_ACTION, $messageA, $linkA);
 
+        $this->expectOutputString($expected);
+
         // --------------------------
-        $expected = <<<OUTPUT
-<div class="pp-version-notice-bold-purple">
-    <span class="pp-version-notice-bold-purple-message">You're using Test B Free. Please, <a href="http://example.com/upgrade-b" target="_blank">upgrade to pro</a>.</span>
-</div>
-OUTPUT;
+        $expected .= '<div class="pp-version-notice-bold-purple"><div class="pp-version-notice-bold-purple-message">You\'re using Test B Free. Please, </div><div class="pp-version-notice-bold-purple-button"><a href="http://example.com/upgrade-b" target="_blank">upgrade to pro</a></div>.</div>';
 
         $messageB = 'You\'re using Test B Free. Please, %supgrade to pro%s.';
         $linkB    = 'http://example.com/upgrade-b';
 
         do_action(Module::DISPLAY_ACTION, $messageB, $linkB);
+
+        $this->expectOutputString($expected);
     }
 
     public function test_module_doesnt_display_the_ad_on_invalid_page()
