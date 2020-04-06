@@ -46,7 +46,7 @@ if (!defined('DUMB_PLUGIN_TWO_LOADED')) {
                     'id'        => 'edit-page',
                     'post_type' => 'page',
                 ],
-            ]
+            ],
         ];
 
         return $settings;
