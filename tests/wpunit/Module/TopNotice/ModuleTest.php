@@ -73,18 +73,6 @@ class ModuleTest extends \Codeception\TestCase\WPTestCase
             'The action is not defined');
     }
 
-    public function test_module_display_with_no_arguments_throws_exception()
-    {
-        $this->expectException(TemplateInvalidArgumentsException::class);
-
-        try {
-            ob_start();
-            $this->module->display();
-        } finally {
-            ob_end_clean();
-        }
-    }
-
     public function test_module_display_with_arguments_returns_output()
     {
         $expected = '<div class="pp-version-notice-bold-purple"><div class="pp-version-notice-bold-purple-message">You\'re using Dumb Plugin Free. Please, </div><div class="pp-version-notice-bold-purple-button"><a href="http://example.com/upgrade" target="_blank">upgrade to pro</a></div>.</div>';
@@ -95,18 +83,6 @@ class ModuleTest extends \Codeception\TestCase\WPTestCase
         $link    = 'http://example.com/upgrade';
 
         $this->module->display($message, $link);
-    }
-
-    public function test_module_display_with_no_arguments_throws_exception_for_action()
-    {
-        $this->expectException(TemplateInvalidArgumentsException::class);
-
-        try {
-            ob_start();
-            do_action(Module::DISPLAY_ACTION);
-        } finally {
-            ob_end_clean();
-        }
     }
 
     public function test_module_display_with_arguments_returns_output_for_action()
