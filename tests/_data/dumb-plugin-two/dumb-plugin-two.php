@@ -52,5 +52,55 @@ if (!defined('DUMB_PLUGIN_TWO_LOADED')) {
         return $settings;
     });
 
+    add_filter(\PPVersionNotices\Module\MenuLink\Module::SETTINGS_FILTER, function ($settings) {
+        // Using multiple parent pages, in case the plugin has different menus based on the enabled/disabled modules.
+        $settings['dumb-plugin-two'] = [
+            'parent' => [
+                'dummy-plugin-two-page-1',
+                'dummy-plugin-two-page-2',
+                'dummy-plugin-two-page-3',
+            ],
+            'label'  => 'Upgrade to Pro',
+            'link'   => 'http://example.com/upgrade',
+        ];
+
+        return $settings;
+    });
+
+    // Add a menu item for testing
+    add_action('admin_menu', function() {
+        add_menu_page(
+            'Dummy plugin Two',
+            'Dummy Plugin Two',
+            'read',
+            'dummy-plugin-two-page-2',
+            function() {
+                return __return_empty_string();
+            }
+        );
+
+        add_submenu_page(
+            'dummy-plugin-two-page-2',
+            'Dummy Plugin Two Sub 1',
+            'Dummy Plugin Two Sub 1',
+            'read',
+            'dummy-plugin-two-sub-1',
+            function() {
+                return __return_empty_string();
+            }
+        );
+
+        add_submenu_page(
+            'dummy-plugin-two-page-2',
+            'Dummy Plugin Two Sub 2',
+            'Dummy Plugin Two Sub 2',
+            'read',
+            'dummy-plugin-two-sub-2',
+            function() {
+                return __return_empty_string();
+            }
+        );
+    });
+
     define('DUMB_PLUGIN_TWO_LOADED', true);
 }

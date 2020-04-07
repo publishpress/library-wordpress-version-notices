@@ -86,27 +86,45 @@ class Module
         $templateLoader = $this->templateLoader;
 
         foreach ($this->settings as $pluginName => $settings) {
-            add_submenu_page(
-                $settings['parent'],
-                $settings['label'],
-                $settings['label'],
-                'read',
-                $settings['parent'] . self::MENU_SLUG_SUFFIX,
-                function () use ($settings, $templateLoader) {
-                    $context = [
-                        'message' => __('Amazing! We are redirecting you to our site...', 'wordpress-version-notices'),
-                        'link'    => $settings['link']
-                    ];
+            if (is_array($settings['parent'])) {
+                foreach ($settings['parent'] as $parent) {
+                    $menuPageURL = menu_page_url($parent, false);
 
-                    $templateLoader->displayOutput('menu-link', 'redirect-page', $context);
+                    if (!empty($menuPageURL)) {
+                        $settings['parent'] = $parent;
+
+                        break;
+                    }
                 }
-            );
+            }
 
-            // Add the CSS class to change the item color.
-            $newItemIndex = $this->getUpgradeMenuItemIndex($submenu[$settings['parent']], $settings);
+            if (!empty($settings['parent'])) {
+                add_submenu_page(
+                    $settings['parent'],
+                    $settings['label'],
+                    $settings['label'],
+                    'read',
+                    $settings['parent'] . self::MENU_SLUG_SUFFIX,
+                    function () use ($settings, $templateLoader) {
+                        $context = [
+                            'message' => __(
+                                'Amazing! We are redirecting you to our site...',
+                                'wordpress-version-notices'
+                            ),
+                            'link'    => $settings['link']
+                        ];
 
-            if (false !== $newItemIndex) {
-                $submenu[$settings['parent']][$newItemIndex][4] = 'pp-version-notice-upgrade-menu-item';
+                        $templateLoader->displayOutput('menu-link', 'redirect-page', $context);
+                    },
+                    9999
+                );
+
+                // Add the CSS class to change the item color.
+                $newItemIndex = $this->getUpgradeMenuItemIndex($submenu[$settings['parent']], $settings);
+
+                if (false !== $newItemIndex) {
+                    $submenu[$settings['parent']][$newItemIndex][4] = 'pp-version-notice-upgrade-menu-item';
+                }
             }
         }
     }
@@ -120,9 +138,5 @@ class Module
         }
 
         return false;
-    }
-
-    public function redirectToTheLink()
-    {
     }
 }

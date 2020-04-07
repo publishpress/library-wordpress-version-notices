@@ -55,7 +55,7 @@ if (!defined('DUMB_PLUGIN_ONE_LOADED')) {
     add_filter(\PPVersionNotices\Module\MenuLink\Module::SETTINGS_FILTER, function ($settings) {
         $settings['dumb-plugin-one'] = [
             'parent' => 'dummy-plugin-one-page',
-            'label'  => 'Upgrade',
+            'label'  => 'Upgrade to Pro',
             'link'   => 'http://example.com/upgrade',
         ];
 
@@ -69,7 +69,9 @@ if (!defined('DUMB_PLUGIN_ONE_LOADED')) {
             'Dummy Plugin One',
             'read',
             'dummy-plugin-one-page',
-            function() {return '';}
+            function() {
+                return __return_empty_string();
+            }
         );
     });
 

@@ -64,10 +64,8 @@ class ModuleTest extends \Codeception\TestCase\WPTestCase
         $this->assertNotContains(\PPVersionNotices\Module\MenuLink\Module::STYLE_HANDLE, $wp_styles->queue);
     }
 
-    public function test_module_add_admin_menu()
+    private function open_admin_page($page = 'edit.php')
     {
-        global $submenu, $_parent_pages;
-
         $currentUser = get_current_user_id();
 
         wp_set_current_user(
@@ -80,18 +78,54 @@ class ModuleTest extends \Codeception\TestCase\WPTestCase
 
         set_current_screen('edit.php');
 
+        return $currentUser;
+    }
+
+    public function test_module_add_admin_menu()
+    {
+        $currentUser = $this->open_admin_page();
+
         do_action('init');
         do_action('admin_menu');
 
         // Main menu of the Dumb Plugin One
         $expected = $_ENV['TEST_SITE_WP_URL'] . '/wp-admin/admin.php?page=dummy-plugin-one-page';
-        $current  = menu_page_url('dummy-plugin-one-page');
+        $current  = menu_page_url('dummy-plugin-one-page', false);
 
         $this->assertEquals($expected, $current);
 
         // Submenu for the Upgrade link
         $expected = $_ENV['TEST_SITE_WP_URL'] . '/wp-admin/admin.php?page=dummy-plugin-one-page' . \PPVersionNotices\Module\MenuLink\Module::MENU_SLUG_SUFFIX;
-        $current  = menu_page_url('dummy-plugin-one-page' . \PPVersionNotices\Module\MenuLink\Module::MENU_SLUG_SUFFIX);
+        $current  = menu_page_url(
+            'dummy-plugin-one-page' . \PPVersionNotices\Module\MenuLink\Module::MENU_SLUG_SUFFIX
+        );
+
+        $this->assertEquals($expected, $current);
+
+        wp_set_current_user($currentUser);
+    }
+
+    public function test_module_add_admin_menu_for_multiple_parents()
+    {
+        $currentUser = $this->open_admin_page();
+
+        do_action('init');
+        do_action('admin_menu');
+
+        global $_parent_pages;
+
+        // Main menu of the Dumb Plugin Two
+        $expected = $_ENV['TEST_SITE_WP_URL'] . '/wp-admin/admin.php?page=dummy-plugin-two-page-2';
+        $current  = menu_page_url('dummy-plugin-two-page-2', false);
+
+        $this->assertEquals($expected, $current);
+
+        // Submenu for the Upgrade link
+        $expected = $_ENV['TEST_SITE_WP_URL'] . '/wp-admin/admin.php?page=dummy-plugin-two-page-2' . \PPVersionNotices\Module\MenuLink\Module::MENU_SLUG_SUFFIX;
+        $current  = menu_page_url(
+            'dummy-plugin-two-page-2' . \PPVersionNotices\Module\MenuLink\Module::MENU_SLUG_SUFFIX,
+            false
+        );
 
         $this->assertEquals($expected, $current);
 
