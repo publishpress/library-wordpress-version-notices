@@ -56,7 +56,7 @@ if (!defined('DUMB_PLUGIN_ONE_LOADED')) {
         $settings['dumb-plugin-one'] = [
             'parent' => 'dummy-plugin-one-page',
             'label'  => 'Upgrade to Pro',
-            'link'   => 'http://example.com/upgrade',
+            'link'   => 'http://example.com/upgrade/one',
         ];
 
         return $settings;

@@ -61,7 +61,7 @@ if (!defined('DUMB_PLUGIN_TWO_LOADED')) {
                 'dummy-plugin-two-page-3',
             ],
             'label'  => 'Upgrade to Pro',
-            'link'   => 'http://example.com/upgrade',
+            'link'   => 'http://example.com/upgrade/two',
         ];
 
         return $settings;

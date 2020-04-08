@@ -48,7 +48,12 @@ class Module
     /**
      * @var array
      */
-    private $settings = [];
+    private $globalSettings = [];
+
+    /**
+     * @var array
+     */
+    private $urlsMap = [];
 
     public function __construct(TemplateLoaderInterface $templateLoader)
     {
@@ -60,12 +65,13 @@ class Module
         add_action('admin_enqueue_scripts', [$this, 'adminEnqueueStyle']);
         add_action('init', [$this, 'collectTheSettings'], 5);
         add_action('admin_menu', [$this, 'addMenuLink'], 20);
+        add_action('admin_print_scripts', [$this, 'setUpgradeMenuLink'], 9999);
     }
 
     public function collectTheSettings()
     {
         if (is_admin()) {
-            $this->settings = apply_filters(self::SETTINGS_FILTER, []);
+            $this->globalSettings = apply_filters(self::SETTINGS_FILTER, []);
         }
     }
 
@@ -79,13 +85,23 @@ class Module
         );
     }
 
+    /**
+     * @param array $settings
+     *
+     * @return string
+     */
+    private function getSubmenuSlug($settings)
+    {
+        return $settings['parent'] . self::MENU_SLUG_SUFFIX;
+    }
+
     public function addMenuLink()
     {
         global $submenu;
 
         $templateLoader = $this->templateLoader;
 
-        foreach ($this->settings as $pluginName => $settings) {
+        foreach ($this->globalSettings as $pluginName => $settings) {
             if (is_array($settings['parent'])) {
                 foreach ($settings['parent'] as $parent) {
                     $menuPageURL = menu_page_url($parent, false);
@@ -99,12 +115,14 @@ class Module
             }
 
             if (!empty($settings['parent'])) {
+                $submenuSlug = $this->getSubmenuSlug($settings);
+
                 add_submenu_page(
                     $settings['parent'],
                     $settings['label'],
                     $settings['label'],
                     'read',
-                    $settings['parent'] . self::MENU_SLUG_SUFFIX,
+                    $submenuSlug,
                     function () use ($settings, $templateLoader) {
                         $context = [
                             'message' => __(
@@ -119,11 +137,17 @@ class Module
                     9999
                 );
 
-                // Add the CSS class to change the item color.
+                $this->urlsMap[$pluginName] = [
+                    'slug'       => $submenuSlug,
+                    'localUrl'   => menu_page_url($submenuSlug, false),
+                    'redirectTo' => $settings['link'],
+                ];
+
+                // Add the CSS class to change the item color and add a reference to the respective URL.
                 $newItemIndex = $this->getUpgradeMenuItemIndex($submenu[$settings['parent']], $settings);
 
                 if (false !== $newItemIndex) {
-                    $submenu[$settings['parent']][$newItemIndex][4] = 'pp-version-notice-upgrade-menu-item';
+                    $submenu[$settings['parent']][$newItemIndex][4] = 'pp-version-notice-upgrade-menu-item ' . $pluginName;
                 }
             }
         }
@@ -132,11 +156,32 @@ class Module
     private function getUpgradeMenuItemIndex($submenuItems, $settings)
     {
         foreach ($submenuItems as $index => $item) {
-            if ($item[0] === $settings['label'] && $item[2] === $settings['parent'] . self::MENU_SLUG_SUFFIX) {
+            if ($item[0] === $settings['label'] && $item[2] === $this->getSubmenuSlug($settings)) {
                 return $index;
             }
         }
 
         return false;
+    }
+
+    public function setUpgradeMenuLink()
+    {
+        if (empty($this->urlsMap)) {
+            return;
+        }
+
+        $convertedUrlsMap = [];
+
+        foreach ($this->urlsMap as $pluginName => $urlData) {
+            $urlData['pluginName'] = $pluginName;
+
+            $convertedUrlsMap[] = $urlData;
+        }
+
+        $context = [
+            'convertedUrlsMap' => $convertedUrlsMap,
+        ];
+
+        $this->templateLoader->displayOutput('menu-link', 'menu-link-script', $context);
     }
 }
