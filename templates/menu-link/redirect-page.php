@@ -9,7 +9,7 @@
             function () {
                 window.location.replace("<?php echo esc_url($link); ?>");
             },
-            1000
+            600
         );
     </script>
 </div>
