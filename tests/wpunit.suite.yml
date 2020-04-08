@@ -21,5 +21,7 @@ modules:
             title: "Test"        
             plugins:
                 - dumb-plugin-one/dumb-plugin-one.php
+                - dumb-plugin-two/dumb-plugin-two.php
             activatePlugins:
                 - dumb-plugin-one/dumb-plugin-one.php
+                - dumb-plugin-two/dumb-plugin-two.php
