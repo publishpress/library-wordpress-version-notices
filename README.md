@@ -61,11 +61,29 @@ add_filter(\PPVersionNotices\Module\MenuLink\Module::SETTINGS_FILTER, function (
 });
 ``` 
 
+If the plugin has alternative parent menus (in case some modules are disabled) you can specify a set of valid menus as parent. The first that is found as parent menu is used as the parent.
+
+```php
+add_filter(\PPVersionNotices\Module\MenuLink\Module::SETTINGS_FILTER, function ($settings) {
+    $settings['dumb-plugin-one'] = [
+        'label' => 'Upgrade',
+        'link'    => 'http://example.com/upgrade',
+        'parent' => [
+            'parent-menu-alias-1',
+            'parent-menu-alias-2',
+            'parent-menu-alias-3',
+        ]
+    ];
+
+    return $settings;
+});
+``` 
+
 #### Params
 
 * label: Type the respective label for the menu item.
 * link: The full link for the menu link.
-* parent: The parent menu we should add the link.
+* parent: The parent menu we should add the link. A string or an array.
 
 ## Testing
 
