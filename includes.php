@@ -39,7 +39,7 @@ if (!defined('PP_VERSION_NOTICES_LOADED')) {
          *
          * Make sure to update the class name after running composer update or dump autoload.
          */
-        if (!class_exists('ComposerAutoloaderInit0ff73bab6c34dc502dbc3151d23f7930')) {
+        if (!class_exists('ComposerAutoloaderInit3900ad7530b245ccd1e9acb54887e278')) {
             require_once __DIR__ . '/vendor/autoload.php';
         }
     }
