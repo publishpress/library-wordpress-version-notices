@@ -7,8 +7,9 @@ use PPVersionNotices\Module\AdInterface;
 use PPVersionNotices\Module\TopNotice\Module;
 use PPVersionNotices\ServicesProvider;
 use PPVersionNotices\Template\TemplateInvalidArgumentsException;
+use WPTestCaseHttps;
 
-class ModuleTest extends \Codeception\TestCase\WPTestCase
+class ModuleTest extends WPTestCaseHttps
 {
     /**
      * @var \WpunitTester
