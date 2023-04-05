@@ -1,2 +1,4 @@
 <?php
-shell_exec('./bin/update-code-for-tests.sh');
+if (! class_exists('WPTestCaseHttps')) {
+    require_once(__DIR__ . '/wpunit/WPTestCaseHttps.php');
+}

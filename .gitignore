@@ -29,3 +29,4 @@ node_modules
 .idea
 /dist
 .env.testing
+wordpress-version-notices.code-workspace
