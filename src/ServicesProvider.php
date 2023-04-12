@@ -25,8 +25,8 @@
 
 namespace PPVersionNotices;
 
-use Pimple\Container;
-use Pimple\ServiceProviderInterface;
+use PublishPress\Pimple\Container;
+use PublishPress\Pimple\ServiceProviderInterface;
 use PPVersionNotices\Module\TopNotice\Module as TopNoticeModule;
 use PPVersionNotices\Module\MenuLink\Module as MenuLinkModule;
 use PPVersionNotices\Template\TemplateLoader;

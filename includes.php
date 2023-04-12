@@ -23,7 +23,7 @@
  * @copyright   Copyright (c) 2020 PublishPress. All rights reserved.
  **/
 
-use Pimple\Container;
+use PublishPress\Pimple\Container;
 use PPVersionNotices\ServicesProvider;
 
 if (!defined('PP_VERSION_NOTICES_LOADED')) {
