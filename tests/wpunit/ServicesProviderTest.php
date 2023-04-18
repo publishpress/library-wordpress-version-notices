@@ -15,7 +15,7 @@ class ServicesProviderTest extends \Codeception\TestCase\WPTestCase
         parent::setUp();
 
         $container       = new PublishPress\Pimple\Container();
-        $serviceProvider = new \PPVersionNotices\ServicesProvider();
+        $serviceProvider = new PPVersionNotices\ServicesProvider();
         $container->register($serviceProvider);
 
         $this->container = $container;
