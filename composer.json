@@ -22,8 +22,8 @@
   "minimum-stability": "stable",
   "require": {
     "php": ">=7.2.5",
-    "publishpress/pimple-pimple": "^3.5.0.1",
-    "publishpress/psr-container": "2.0.1.1"
+    "publishpress/pimple-pimple": "^3.5.0.0",
+    "publishpress/psr-container": "^2.0.1.0"
   },
   "require-dev": {
     "lucatume/wp-browser": "^3",
@@ -37,5 +37,19 @@
     "codeception/module-rest": "^1.3",
     "composer/composer": "2.2.12",
     "overtrue/phplint": "^2.1"
+  },
+  "scripts": {
+    "test:wpunit": [
+      "bin/update-code-for-tests.sh",
+      "vendor/bin/codecept run wpunit"
+    ],
+    "test": [
+      "bin/update-code-for-tests.sh",
+      "vendor/bin/codecept run"
+    ],
+    "test:acceptance": [
+      "bin/update-code-for-tests.sh",
+      "vendor/bin/codecept run acceptance"
+    ]
   }
 }
