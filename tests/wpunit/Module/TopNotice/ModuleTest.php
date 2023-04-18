@@ -2,7 +2,7 @@
 
 namespace Module\TopNotice;
 
-use Pimple\Container;
+use PublishPress\Pimple\Container;
 use PPVersionNotices\Module\AdInterface;
 use PPVersionNotices\Module\TopNotice\Module;
 use PPVersionNotices\ServicesProvider;
