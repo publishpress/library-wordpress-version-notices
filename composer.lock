@@ -8,30 +8,43 @@
     "packages": [
         {
             "name": "publishpress/pimple-pimple",
-            "version": "3.5.0.1",
+            "version": "3.5.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/publishpress/library-pimple-pimple.git",
-                "reference": "a01cdb8ecbe7d58e2f532166d8c941cc9a2fd888"
+                "reference": "6a4e63b585ca56d1b258c4710f3de8b447fe12ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/publishpress/library-pimple-pimple/zipball/a01cdb8ecbe7d58e2f532166d8c941cc9a2fd888",
-                "reference": "a01cdb8ecbe7d58e2f532166d8c941cc9a2fd888",
+                "url": "https://api.github.com/repos/publishpress/library-pimple-pimple/zipball/6a4e63b585ca56d1b258c4710f3de8b447fe12ad",
+                "reference": "6a4e63b585ca56d1b258c4710f3de8b447fe12ad",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.2.5",
-                "publishpress/psr-container": "2.0.1.1"
+                "publishpress/psr-container": "^2.0.1.1"
             },
             "require-dev": {
                 "brianhenryie/strauss": "^0.14.0",
-                "pimple/pimple": "3.5.0"
+                "codeception/module-asserts": "^1.0",
+                "codeception/module-cli": "^1.0",
+                "codeception/module-db": "^1.0",
+                "codeception/module-filesystem": "^1.0",
+                "codeception/module-phpbrowser": "^1.0",
+                "codeception/module-webdriver": "^1.0",
+                "codeception/util-universalframework": "^1.0",
+                "lucatume/wp-browser": "^3.1",
+                "pimple/pimple": "3.5.0",
+                "publishpress/codeception-extension-extended-copier": "^1.0",
+                "publishpress/version-loader-generator": "^1.0"
             },
             "type": "library",
             "extra": {
+                "generator": {
+                    "lib-class-test": "class_exists('PublishPress\\Pimple\\Container')"
+                },
                 "strauss": {
-                    "target_directory": "src-prefixed",
+                    "target_directory": "lib",
                     "namespace_prefix": "PublishPress\\",
                     "classmap_prefix": "PublishPress_",
                     "constant_prefix": "PUBLISHPRESS_",
@@ -59,7 +72,7 @@
             },
             "autoload": {
                 "files": [
-                    "src-prefixed/autoload.php"
+                    "lib/include.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -85,22 +98,22 @@
             ],
             "support": {
                 "issues": "https://github.com/publishpress/library-pimple-pimple/issues",
-                "source": "https://github.com/publishpress/library-pimple-pimple/tree/3.5.0.1"
+                "source": "https://github.com/publishpress/library-pimple-pimple/tree/3.5.0.5"
             },
-            "time": "2023-04-12T21:48:27+00:00"
+            "time": "2023-04-21T02:42:18+00:00"
         },
         {
             "name": "publishpress/psr-container",
-            "version": "2.0.1.1",
+            "version": "2.0.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/publishpress/library-psr-container.git",
-                "reference": "5b5749838a30de8872063bbd698b756436f1ffba"
+                "reference": "a1fbcd6f8e6922ef7ce7683787ee40898eb3f767"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/publishpress/library-psr-container/zipball/5b5749838a30de8872063bbd698b756436f1ffba",
-                "reference": "5b5749838a30de8872063bbd698b756436f1ffba",
+                "url": "https://api.github.com/repos/publishpress/library-psr-container/zipball/a1fbcd6f8e6922ef7ce7683787ee40898eb3f767",
+                "reference": "a1fbcd6f8e6922ef7ce7683787ee40898eb3f767",
                 "shasum": ""
             },
             "require": {
@@ -108,12 +121,25 @@
             },
             "require-dev": {
                 "brianhenryie/strauss": "^0.14.0",
-                "psr/container": "2.0.1"
+                "codeception/module-asserts": "^1.0",
+                "codeception/module-cli": "^1.0",
+                "codeception/module-db": "^1.0",
+                "codeception/module-filesystem": "^1.0",
+                "codeception/module-phpbrowser": "^1.0",
+                "codeception/module-webdriver": "^1.0",
+                "codeception/util-universalframework": "^1.0",
+                "lucatume/wp-browser": "^3.1",
+                "psr/container": "2.0.1",
+                "publishpress/codeception-extension-extended-copier": "^1.0",
+                "publishpress/version-loader-generator": "^1.0"
             },
             "type": "library",
             "extra": {
+                "generator": {
+                    "lib-class-test": "interface_exists('PublishPress\\Psr\\Container\\ContainerInterface')"
+                },
                 "strauss": {
-                    "target_directory": "src-prefixed",
+                    "target_directory": "lib",
                     "namespace_prefix": "PublishPress\\",
                     "classmap_prefix": "PublishPress_",
                     "constant_prefix": "PUBLISHPRESS_",
@@ -140,7 +166,7 @@
             },
             "autoload": {
                 "files": [
-                    "src-prefixed/autoload.php"
+                    "lib/include.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -169,9 +195,9 @@
             ],
             "support": {
                 "issues": "https://github.com/publishpress/library-psr-container/issues",
-                "source": "https://github.com/publishpress/library-psr-container/tree/2.0.1.1"
+                "source": "https://github.com/publishpress/library-psr-container/tree/2.0.1.5"
             },
-            "time": "2023-04-12T17:06:00+00:00"
+            "time": "2023-04-21T02:37:40+00:00"
         }
     ],
     "packages-dev": [
@@ -2573,16 +2599,16 @@
         },
         {
             "name": "mikehaertl/php-shellcommand",
-            "version": "1.6.4",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mikehaertl/php-shellcommand.git",
-                "reference": "3488d7803df1e8f1a343d3d0ca452d527ad8d5e5"
+                "reference": "e79ea528be155ffdec6f3bf1a4a46307bb49e545"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mikehaertl/php-shellcommand/zipball/3488d7803df1e8f1a343d3d0ca452d527ad8d5e5",
-                "reference": "3488d7803df1e8f1a343d3d0ca452d527ad8d5e5",
+                "url": "https://api.github.com/repos/mikehaertl/php-shellcommand/zipball/e79ea528be155ffdec6f3bf1a4a46307bb49e545",
+                "reference": "e79ea528be155ffdec6f3bf1a4a46307bb49e545",
                 "shasum": ""
             },
             "require": {
@@ -2613,9 +2639,9 @@
             ],
             "support": {
                 "issues": "https://github.com/mikehaertl/php-shellcommand/issues",
-                "source": "https://github.com/mikehaertl/php-shellcommand/tree/1.6.4"
+                "source": "https://github.com/mikehaertl/php-shellcommand/tree/1.7.0"
             },
-            "time": "2021-03-17T06:54:33+00:00"
+            "time": "2023-04-19T08:25:22+00:00"
         },
         {
             "name": "mikemclin/laravel-wp-password",

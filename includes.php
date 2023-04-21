@@ -23,14 +23,16 @@
  * @copyright   Copyright (c) 2020 PublishPress. All rights reserved.
  **/
 
-use PublishPress\Pimple\Container;
 use PPVersionNotices\ServicesProvider;
+use PublishPress\Pimple\Container;
 
-if (!defined('PP_VERSION_NOTICES_LOADED')) {
+if (! defined('PP_VERSION_NOTICES_LOADED')) {
     define('PP_VERSION_NOTICES_VERSION', '2.0.0');
     define('PP_VERSION_NOTICES_BASE_PATH', __DIR__);
     define('PP_VERSION_NOTICES_BASE_URL', untrailingslashit(plugin_dir_url(__FILE__)));
     define('PP_VERSION_NOTICES_SRC_PATH', PP_VERSION_NOTICES_BASE_PATH . '/src');
+
+    // Update to load the prefixed libraries using the include...
 
     if (file_exists(__DIR__ . '/vendor/autoload.php')) {
         /*
@@ -39,7 +41,7 @@ if (!defined('PP_VERSION_NOTICES_LOADED')) {
          *
          * Make sure to update the class name after running composer update or dump autoload.
          */
-        if (!class_exists('ComposerAutoloaderInit3900ad7530b245ccd1e9acb54887e278')) {
+        if (! class_exists('ComposerAutoloaderInitd86d7dcd4bca51624d841c4d9097b96d')) {
             require_once __DIR__ . '/vendor/autoload.php';
         }
     }
