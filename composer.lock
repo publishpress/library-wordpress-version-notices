@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "publishpress/pimple-pimple",
-            "version": "3.5.0.5",
+            "version": "3.5.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/publishpress/library-pimple-pimple.git",
-                "reference": "6a4e63b585ca56d1b258c4710f3de8b447fe12ad"
+                "reference": "e259fdbb057530f167d125780d978e9e92be9fbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/publishpress/library-pimple-pimple/zipball/6a4e63b585ca56d1b258c4710f3de8b447fe12ad",
-                "reference": "6a4e63b585ca56d1b258c4710f3de8b447fe12ad",
+                "url": "https://api.github.com/repos/publishpress/library-pimple-pimple/zipball/e259fdbb057530f167d125780d978e9e92be9fbc",
+                "reference": "e259fdbb057530f167d125780d978e9e92be9fbc",
                 "shasum": ""
             },
             "require": {
@@ -98,22 +98,22 @@
             ],
             "support": {
                 "issues": "https://github.com/publishpress/library-pimple-pimple/issues",
-                "source": "https://github.com/publishpress/library-pimple-pimple/tree/3.5.0.5"
+                "source": "https://github.com/publishpress/library-pimple-pimple/tree/3.5.0.6"
             },
-            "time": "2023-04-21T02:42:18+00:00"
+            "time": "2023-04-24T21:43:09+00:00"
         },
         {
             "name": "publishpress/psr-container",
-            "version": "2.0.1.5",
+            "version": "2.0.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/publishpress/library-psr-container.git",
-                "reference": "a1fbcd6f8e6922ef7ce7683787ee40898eb3f767"
+                "reference": "ac74968078f796cf13196b3d19715baa9a2310a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/publishpress/library-psr-container/zipball/a1fbcd6f8e6922ef7ce7683787ee40898eb3f767",
-                "reference": "a1fbcd6f8e6922ef7ce7683787ee40898eb3f767",
+                "url": "https://api.github.com/repos/publishpress/library-psr-container/zipball/ac74968078f796cf13196b3d19715baa9a2310a2",
+                "reference": "ac74968078f796cf13196b3d19715baa9a2310a2",
                 "shasum": ""
             },
             "require": {
@@ -195,9 +195,9 @@
             ],
             "support": {
                 "issues": "https://github.com/publishpress/library-psr-container/issues",
-                "source": "https://github.com/publishpress/library-psr-container/tree/2.0.1.5"
+                "source": "https://github.com/publishpress/library-psr-container/tree/2.0.1.6"
             },
-            "time": "2023-04-21T02:37:40+00:00"
+            "time": "2023-04-24T21:38:43+00:00"
         }
     ],
     "packages-dev": [
