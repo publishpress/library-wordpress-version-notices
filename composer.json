@@ -2,7 +2,7 @@
   "name": "publishpress/wordpress-version-notices",
   "description": "Library for displaying version notices for Pro plugins in WordPress.",
   "type": "library",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "license": "GPL-3.0-or-later",
   "authors": [
     {
