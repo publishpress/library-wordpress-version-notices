@@ -20,7 +20,7 @@ You just need to load the vendor/autoload.php file in your plugin or theme in th
 ### Top Notice
 
 ```php
-add_filter(\PPVersionNotices\Module\TopNotice\Module::SETTINGS_FILTER, function ($settings) {
+add_filter(\PublishPress\WordpressVersionNotices\Module\TopNotice\Module::SETTINGS_FILTER, function ($settings) {
     $settings['dumb-plugin-one'] = [
         'message' => 'You\'re using Dumb Plugin One Free. Please, %supgrade to pro%s.',
         'link'    => 'http://example.com/upgrade',
@@ -46,7 +46,7 @@ add_filter(\PPVersionNotices\Module\TopNotice\Module::SETTINGS_FILTER, function 
 ### Menu link
 
 ```php
-add_filter(\PPVersionNotices\Module\MenuLink\Module::SETTINGS_FILTER, function ($settings) {
+add_filter(\PublishPress\WordpressVersionNotices\Module\MenuLink\Module::SETTINGS_FILTER, function ($settings) {
     $settings['dumb-plugin-one'] = [
         'label' => 'Upgrade',
         'link'    => 'http://example.com/upgrade',
@@ -60,7 +60,7 @@ add_filter(\PPVersionNotices\Module\MenuLink\Module::SETTINGS_FILTER, function (
 If the plugin has alternative parent menus (in case some modules are disabled) you can specify a set of valid menus as parent. The first that is found as parent menu is used as the parent.
 
 ```php
-add_filter(\PPVersionNotices\Module\MenuLink\Module::SETTINGS_FILTER, function ($settings) {
+add_filter(\PublishPress\WordpressVersionNotices\Module\MenuLink\Module::SETTINGS_FILTER, function ($settings) {
     $settings['dumb-plugin-one'] = [
         'label' => 'Upgrade',
         'link'    => 'http://example.com/upgrade',

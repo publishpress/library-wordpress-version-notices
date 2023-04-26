@@ -67,7 +67,7 @@
   },
   "extra": {
     "generator": {
-      "lib-class-test": "class_exists('PPVersionNotices\\ServicesProvider')",
+      "lib-class-test": "class_exists('PublishPress\\WordpressVersionNotices\\ServicesProvider')",
       "src-dir": "src",
       "action-initialize-priority": "-150",
       "action-register-priority": "-190"

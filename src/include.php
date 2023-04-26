@@ -31,7 +31,7 @@ if (! function_exists(__NAMESPACE__ . '\register2Dot0Dot2')) {
 
     function register2Dot0Dot2()
     {
-        if (! class_exists('PPVersionNotices\ServicesProvider')) {
+        if (! class_exists('PublishPress\WordpressVersionNotices\ServicesProvider')) {
             $versions = Versions::getInstance();
             $versions->register('2.0.2', __NAMESPACE__ . '\initialize2Dot0Dot2');
         }

@@ -17,22 +17,22 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @package     PPVersionNotices
+ * @package     PublishPress\WordpressVersionNotices
  * @category    Core
  * @author      PublishPress
  * @copyright   Copyright (c) 2020 PublishPress. All rights reserved.
  **/
 
-namespace PPVersionNotices\Module\TopNotice;
+namespace PublishPress\WordpressVersionNotices\Module\TopNotice;
 
-use PPVersionNotices\Module\AdInterface;
-use PPVersionNotices\Template\TemplateInvalidArgumentsException;
-use PPVersionNotices\Template\TemplateLoaderInterface;
+use PublishPress\WordpressVersionNotices\Module\AdInterface;
+use PublishPress\WordpressVersionNotices\Template\TemplateInvalidArgumentsException;
+use PublishPress\WordpressVersionNotices\Template\TemplateLoaderInterface;
 
 /**
  * Class Module
  *
- * @package PPVersionNotices
+ * @package PublishPress\WordpressVersionNotices
  */
 class Module implements AdInterface
 {

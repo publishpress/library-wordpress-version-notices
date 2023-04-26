@@ -1,7 +1,7 @@
 <?php
 
-use PPVersionNotices\Autoloader;
-use PPVersionNotices\ServicesProvider;
+use PublishPress\WordpressVersionNotices\Autoloader;
+use PublishPress\WordpressVersionNotices\ServicesProvider;
 use PublishPress\Pimple\Container;
 
 if (! function_exists('untrailingslashit') || ! function_exists('plugin_dir_url')) {
@@ -17,8 +17,12 @@ add_action('plugins_loaded', function () {
         // @deprecated
         define('PP_VERSION_NOTICES_BASE_URL', untrailingslashit(plugin_dir_url(__FILE__)));
 
-        if (! class_exists('PPVersionNotices\\Autoloader')) {
+        if (! class_exists('PublishPress\\WordpressVersionNotices\\Autoloader')) {
             require_once __DIR__ . '/Autoloader.php';
+        }
+
+        if (! class_exists('PPVersionNotices\\Autoloader')) {
+            require_once __DIR__ . '/deprected.php';
         }
 
         Autoloader::register();
