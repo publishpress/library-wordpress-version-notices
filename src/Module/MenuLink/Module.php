@@ -62,7 +62,7 @@ class Module
 
     public function init()
     {
-        add_action('admin_enqueue_scripts', [$this, 'adminEnqueueStyle']);
+        add_action('admin_head', [$this, 'adminHeadAddStyle']);
         add_action('init', [$this, 'collectTheSettings'], 5);
         add_action('admin_menu', [$this, 'addMenuLink'], 20);
         add_action('admin_print_scripts', [$this, 'setUpgradeMenuLink'], 9999);
@@ -75,51 +75,50 @@ class Module
         }
     }
 
-    public function adminEnqueueStyle()
+    public function adminHeadAddStyle()
     {
-        $style = <<<STYLE
-.pp-version-notice-upgrade-menu-item {
-    font-weight: bold !important;
-    color: #FEB123 !important;
-    font-weight: bold;
-}
+        ?>
+        <style>
+            .pp-version-notice-upgrade-menu-item {
+                font-weight: bold !important;
+                color: #FEB123 !important;
+                font-weight: bold;
+            }
 
-.pp-version-notice-upgrade-menu-item-page {
-    padding: 10px;
-    width: calc(100% - 40px);
-    margin-top: 20px;
-    text-align: center;
-}
+            .pp-version-notice-upgrade-menu-item-page {
+                padding: 10px;
+                width: calc(100% - 40px);
+                margin-top: 20px;
+                text-align: center;
+            }
 
-.pp-version-notice-upgrade-menu-item-page .spin {
-    -webkit-animation: spin 1000ms infinite linear;
-    animation: spin 1000ms infinite linear;
-    color: #635A93;
-}
-@-webkit-keyframes spin {
-    0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(359deg);
-        transform: rotate(359deg);
-    }
-}
-@keyframes spin {
-    0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(359deg);
-        transform: rotate(359deg);
-    }
-}
-
-STYLE;
-
-        wp_add_inline_style(self::STYLE_HANDLE, $style);
+            .pp-version-notice-upgrade-menu-item-page .spin {
+                -webkit-animation: spin 1000ms infinite linear;
+                animation: spin 1000ms infinite linear;
+                color: #635A93;
+            }
+            @-webkit-keyframes spin {
+                0% {
+                    -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                100% {
+                    -webkit-transform: rotate(359deg);
+                    transform: rotate(359deg);
+                }
+            }
+            @keyframes spin {
+                0% {
+                    -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                100% {
+                    -webkit-transform: rotate(359deg);
+                    transform: rotate(359deg);
+                }
+            }
+        </style>
+        <?php
     }
 
     /**
