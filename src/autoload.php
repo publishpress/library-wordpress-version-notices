@@ -22,7 +22,7 @@ add_action('plugins_loaded', function () {
         }
 
         if (! class_exists('PPVersionNotices\\Autoloader')) {
-            require_once __DIR__ . '/deprected.php';
+            require_once __DIR__ . '/deprecated.php';
         }
 
         Autoloader::register();
