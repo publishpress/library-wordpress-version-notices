@@ -15,9 +15,9 @@
     "preferred-install": "dist"
   },
   "autoload": {
-    "psr-4": {
-      "PPVersionNotices\\": "src/"
-    }
+    "files": [
+      "src/include.php"
+    ]
   },
   "minimum-stability": "stable",
   "require": {
@@ -36,20 +36,40 @@
     "codeception/util-universalframework": "^1.0",
     "codeception/module-rest": "^1.3",
     "composer/composer": "2.2.12",
-    "overtrue/phplint": "^2.1"
+    "overtrue/phplint": "^2.1",
+    "publishpress/version-loader-generator": "^1.0"
   },
   "scripts": {
+    "update-code-for-tests": "bin/update-code-for-tests.sh",
+    "generate-loader-files": [
+      "vendor/bin/version-loader-generator"
+    ],
+    "post-install-cmd": [
+      "@generate-loader-files"
+    ],
+    "post-update-cmd": [
+      "@generate-loader-files"
+    ],
     "test:wpunit": [
-      "bin/update-code-for-tests.sh",
+      "@update-code-for-tests",
       "vendor/bin/codecept run wpunit"
     ],
-    "test": [
-      "bin/update-code-for-tests.sh",
-      "vendor/bin/codecept run"
-    ],
     "test:acceptance": [
-      "bin/update-code-for-tests.sh",
+      "@update-code-for-tests",
       "vendor/bin/codecept run acceptance"
+    ],
+    "test": [
+      "@update-code-for-tests",
+      "@test:wpunit",
+      "@test:acceptance"
     ]
+  },
+  "extra": {
+    "generator": {
+      "lib-class-test": "class_exists('PPVersionNotices\\ServicesProvider')",
+      "src-dir": "src",
+      "action-initialize-priority": "-150",
+      "action-register-priority": "-190"
+    }
   }
 }

@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4ecfd741f12c7e6b46b9d1a748288f30",
+    "content-hash": "566af310e6ee62ff048e5ed7cb1fae5f",
     "packages": [
         {
             "name": "publishpress/pimple-pimple",
-            "version": "3.5.0.6",
+            "version": "3.5.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/publishpress/library-pimple-pimple.git",
-                "reference": "e259fdbb057530f167d125780d978e9e92be9fbc"
+                "reference": "2974517f906cdebac620dc5aeabf5f8ac34ebe70"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/publishpress/library-pimple-pimple/zipball/e259fdbb057530f167d125780d978e9e92be9fbc",
-                "reference": "e259fdbb057530f167d125780d978e9e92be9fbc",
+                "url": "https://api.github.com/repos/publishpress/library-pimple-pimple/zipball/2974517f906cdebac620dc5aeabf5f8ac34ebe70",
+                "reference": "2974517f906cdebac620dc5aeabf5f8ac34ebe70",
                 "shasum": ""
             },
             "require": {
@@ -41,7 +41,9 @@
             "type": "library",
             "extra": {
                 "generator": {
-                    "lib-class-test": "class_exists('PublishPress\\Pimple\\Container')"
+                    "lib-class-test": "class_exists('PublishPress\\Pimple\\Container')",
+                    "action-initialize-priority": "-185",
+                    "action-register-priority": "-200"
                 },
                 "strauss": {
                     "target_directory": "lib",
@@ -98,22 +100,22 @@
             ],
             "support": {
                 "issues": "https://github.com/publishpress/library-pimple-pimple/issues",
-                "source": "https://github.com/publishpress/library-pimple-pimple/tree/3.5.0.6"
+                "source": "https://github.com/publishpress/library-pimple-pimple/tree/3.5.0.7"
             },
-            "time": "2023-04-24T21:43:09+00:00"
+            "time": "2023-04-26T01:54:50+00:00"
         },
         {
             "name": "publishpress/psr-container",
-            "version": "2.0.1.6",
+            "version": "2.0.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/publishpress/library-psr-container.git",
-                "reference": "ac74968078f796cf13196b3d19715baa9a2310a2"
+                "reference": "f69f504b2feb966c80789e24c2cf237e32c6cab9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/publishpress/library-psr-container/zipball/ac74968078f796cf13196b3d19715baa9a2310a2",
-                "reference": "ac74968078f796cf13196b3d19715baa9a2310a2",
+                "url": "https://api.github.com/repos/publishpress/library-psr-container/zipball/f69f504b2feb966c80789e24c2cf237e32c6cab9",
+                "reference": "f69f504b2feb966c80789e24c2cf237e32c6cab9",
                 "shasum": ""
             },
             "require": {
@@ -136,7 +138,9 @@
             "type": "library",
             "extra": {
                 "generator": {
-                    "lib-class-test": "interface_exists('PublishPress\\Psr\\Container\\ContainerInterface')"
+                    "lib-class-test": "interface_exists('PublishPress\\Psr\\Container\\ContainerInterface')",
+                    "action-initialize-priority": "-190",
+                    "action-register-priority": "-200"
                 },
                 "strauss": {
                     "target_directory": "lib",
@@ -195,9 +199,9 @@
             ],
             "support": {
                 "issues": "https://github.com/publishpress/library-psr-container/issues",
-                "source": "https://github.com/publishpress/library-psr-container/tree/2.0.1.6"
+                "source": "https://github.com/publishpress/library-psr-container/tree/2.0.1.7"
             },
-            "time": "2023-04-24T21:38:43+00:00"
+            "time": "2023-04-26T01:36:16+00:00"
         }
     ],
     "packages-dev": [
@@ -2158,16 +2162,16 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v10.8.0",
+            "version": "v10.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
-                "reference": "93bbd01e3746bc8a5c02cb5440bb9fe3386ad01e"
+                "reference": "0404a7d44788a43115030d45e9b2c9e1e011d0eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/collections/zipball/93bbd01e3746bc8a5c02cb5440bb9fe3386ad01e",
-                "reference": "93bbd01e3746bc8a5c02cb5440bb9fe3386ad01e",
+                "url": "https://api.github.com/repos/illuminate/collections/zipball/0404a7d44788a43115030d45e9b2c9e1e011d0eb",
+                "reference": "0404a7d44788a43115030d45e9b2c9e1e011d0eb",
                 "shasum": ""
             },
             "require": {
@@ -2209,11 +2213,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-03-31T12:30:11+00:00"
+            "time": "2023-04-24T18:49:40+00:00"
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v10.8.0",
+            "version": "v10.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/conditionable.git",
@@ -2259,7 +2263,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v10.8.0",
+            "version": "v10.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -2307,7 +2311,7 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v10.8.0",
+            "version": "v10.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -2353,16 +2357,16 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v10.8.0",
+            "version": "v10.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "22f859b0d9947cc00bae7a66d76e4b78e2c27893"
+                "reference": "d79c0b3d852fd3cd52d5caac585cdf5ce3d872ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/22f859b0d9947cc00bae7a66d76e4b78e2c27893",
-                "reference": "22f859b0d9947cc00bae7a66d76e4b78e2c27893",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/d79c0b3d852fd3cd52d5caac585cdf5ce3d872ff",
+                "reference": "d79c0b3d852fd3cd52d5caac585cdf5ce3d872ff",
                 "shasum": ""
             },
             "require": {
@@ -2420,7 +2424,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-04-15T21:53:23+00:00"
+            "time": "2023-04-21T15:14:58+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -4046,6 +4050,51 @@
                 "source": "https://github.com/php-fig/simple-cache/tree/3.0.0"
             },
             "time": "2021-10-29T13:26:27+00:00"
+        },
+        {
+            "name": "publishpress/version-loader-generator",
+            "version": "1.1.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/publishpress/library-version-loader-generator.git",
+                "reference": "263b33fd442dc35fb7420d5d9b87cb3a9a58a555"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/publishpress/library-version-loader-generator/zipball/263b33fd442dc35fb7420d5d9b87cb3a9a58a555",
+                "reference": "263b33fd442dc35fb7420d5d9b87cb3a9a58a555",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*"
+            },
+            "require-dev": {
+                "codeception/module-asserts": "^1.0",
+                "codeception/module-filesystem": "^1.0",
+                "codeception/util-universalframework": "^1.0",
+                "lucatume/wp-browser": "^3.1",
+                "php": ">=7.2.5"
+            },
+            "bin": [
+                "bin/version-loader-generator"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Anderson Martins",
+                    "email": "anderson@publishpress.com"
+                }
+            ],
+            "description": "Composer script to generate the version loader files for libraries on PubilshPress",
+            "support": {
+                "issues": "https://github.com/publishpress/library-version-loader-generator/issues",
+                "source": "https://github.com/publishpress/library-version-loader-generator/tree/1.1.8"
+            },
+            "time": "2023-04-25T21:05:45+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
