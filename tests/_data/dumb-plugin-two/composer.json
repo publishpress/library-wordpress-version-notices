@@ -1,0 +1,14 @@
+{
+  "name": "publishpress/dumb-plugin-two",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Anderson Martins",
+      "email": "anderson@publishpress.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.2.5",
+    "publishpress/wordpress-version-notices": "*"
+  }
+}

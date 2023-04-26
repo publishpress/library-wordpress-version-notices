@@ -30,50 +30,53 @@
  * @copyright   Copyright (C) 2020 PublishPress. All rights reserved.
  */
 
-if (!defined('DUMB_PLUGIN_ONE_LOADED')) {
-    // @todo: Load only in the admin
-    if (!defined('PP_VERSION_NOTICES_LOADED')) {
-        require_once __DIR__ . '/vendor/publishpress/wordpress-version-notices/includes.php';
-    }
+use PPVersionNotices\Module\MenuLink\Module as ModuleMenuLink;
+use PPVersionNotices\Module\TopNotice\Module as ModuleTopNotice;
 
-    add_filter(\PPVersionNotices\Module\TopNotice\Module::SETTINGS_FILTER, function ($settings) {
-        $settings['dumb-plugin-one'] = [
-            'message' => 'You\'re using Dumb Plugin One Free. Please, %supgrade to pro%s.',
-            'link'    => 'http://example.com/upgrade',
-            'screens' => [
-                [
-                    'base'      => 'edit',
-                    'id'        => 'edit-post',
-                    'post_type' => 'post',
+if (! defined('DUMB_PLUGIN_ONE_LOADED')) {
+
+    require_once __DIR__ . '/vendor/autoload.php';
+
+    add_action('plugins_loaded', function () {
+        add_filter(ModuleTopNotice::SETTINGS_FILTER, function ($settings) {
+            $settings['dumb-plugin-one'] = [
+                'message' => 'You\'re using Dumb Plugin One Free. Please, %supgrade to pro%s.',
+                'link' => 'http://example.com/upgrade',
+                'screens' => [
+                    [
+                        'base' => 'edit',
+                        'id' => 'edit-post',
+                        'post_type' => 'post',
+                    ],
                 ],
-            ],
-        ];
+            ];
 
-        return $settings;
-    });
+            return $settings;
+        });
 
-    add_filter(\PPVersionNotices\Module\MenuLink\Module::SETTINGS_FILTER, function ($settings) {
-        $settings['dumb-plugin-one'] = [
-            'parent' => 'dummy-plugin-one-page',
-            'label'  => 'Upgrade to Pro',
-            'link'   => 'http://example.com/upgrade/one',
-        ];
+        add_filter(ModuleMenuLink::SETTINGS_FILTER, function ($settings) {
+            $settings['dumb-plugin-one'] = [
+                'parent' => 'dummy-plugin-one-page',
+                'label' => 'Upgrade to Pro',
+                'link' => 'http://example.com/upgrade/one',
+            ];
 
-        return $settings;
-    });
+            return $settings;
+        });
 
-    // Add a menu item for testing
-    add_action('admin_menu', function() {
-        add_menu_page(
-            'Dummy plugin One',
-            'Dummy Plugin One',
-            'read',
-            'dummy-plugin-one-page',
-            function() {
-                return __return_empty_string();
-            }
-        );
-    });
+        // Add a menu item for testing
+        add_action('admin_menu', function () {
+            add_menu_page(
+                'Dummy plugin One',
+                'Dummy Plugin One',
+                'read',
+                'dummy-plugin-one-page',
+                function () {
+                    return __return_empty_string();
+                }
+            );
+        });
+    }, -15, 0);
 
     define('DUMB_PLUGIN_ONE_LOADED', true);
 }

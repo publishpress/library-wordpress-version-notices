@@ -30,77 +30,79 @@
  * @copyright   Copyright (C) 2020 PublishPress. All rights reserved.
  */
 
-if (!defined('DUMB_PLUGIN_TWO_LOADED')) {
-    // @todo: Load only in the admin
-    if (!defined('PP_VERSION_NOTICES_LOADED')) {
-        require_once __DIR__ . '/vendor/publishpress/wordpress-version-notices/includes.php';
-    }
+use PPVersionNotices\Module\MenuLink\Module as ModuleMenuLink;
+use PPVersionNotices\Module\TopNotice\Module as ModuleTopNotice;
 
-    add_filter(\PPVersionNotices\Module\TopNotice\Module::SETTINGS_FILTER, function ($settings) {
-        $settings['dumb-plugin-two'] = [
-            'message' => 'You\'re using Dumb Plugin Two Free. Please, %supgrade to pro%s.',
-            'link'    => 'http://example.com/upgrade',
-            'screens' => [
-                [
-                    'base'      => 'edit',
-                    'id'        => 'edit-page',
-                    'post_type' => 'page',
-                ],
-            ],
-        ];
-
-        return $settings;
-    });
-
-    add_filter(\PPVersionNotices\Module\MenuLink\Module::SETTINGS_FILTER, function ($settings) {
-        // Using multiple parent pages, in case the plugin has different menus based on the enabled/disabled modules.
-        $settings['dumb-plugin-two'] = [
-            'parent' => [
-                'dummy-plugin-two-page-1',
-                'dummy-plugin-two-page-2',
-                'dummy-plugin-two-page-3',
-            ],
-            'label'  => 'Upgrade to Pro',
-            'link'   => 'http://example.com/upgrade/two',
-        ];
-
-        return $settings;
-    });
-
-    // Add a menu item for testing
-    add_action('admin_menu', function() {
-        add_menu_page(
-            'Dummy plugin Two',
-            'Dummy Plugin Two',
-            'read',
-            'dummy-plugin-two-page-2',
-            function() {
-                return __return_empty_string();
-            }
-        );
-
-        add_submenu_page(
-            'dummy-plugin-two-page-2',
-            'Dummy Plugin Two Sub 1',
-            'Dummy Plugin Two Sub 1',
-            'read',
-            'dummy-plugin-two-sub-1',
-            function() {
-                return __return_empty_string();
-            }
-        );
-
-        add_submenu_page(
-            'dummy-plugin-two-page-2',
-            'Dummy Plugin Two Sub 2',
-            'Dummy Plugin Two Sub 2',
-            'read',
-            'dummy-plugin-two-sub-2',
-            function() {
-                return __return_empty_string();
-            }
-        );
-    });
-
-    define('DUMB_PLUGIN_TWO_LOADED', true);
+if (! defined('DUMB_PLUGIN_TWO_LOADED')) {
+//    require_once __DIR__ . '/vendor/publishpress/wordpress-version-notices/src/include.php';
+//
+//    add_action('plugins_loaded', function () {
+//        add_filter(ModuleTopNotice::SETTINGS_FILTER, function ($settings) {
+//            $settings['dumb-plugin-two'] = [
+//                'message' => 'You\'re using Dumb Plugin Two Free. Please, %supgrade to pro%s.',
+//                'link' => 'http://example.com/upgrade',
+//                'screens' => [
+//                    [
+//                        'base' => 'edit',
+//                        'id' => 'edit-page',
+//                        'post_type' => 'page',
+//                    ],
+//                ],
+//            ];
+//
+//            return $settings;
+//        });
+//
+//        add_filter(ModuleMenuLink::SETTINGS_FILTER, function ($settings) {
+//            // Using multiple parent pages, in case the plugin has different menus based on the enabled/disabled modules.
+//            $settings['dumb-plugin-two'] = [
+//                'parent' => [
+//                    'dummy-plugin-two-page-1',
+//                    'dummy-plugin-two-page-2',
+//                    'dummy-plugin-two-page-3',
+//                ],
+//                'label' => 'Upgrade to Pro',
+//                'link' => 'http://example.com/upgrade/two',
+//            ];
+//
+//            return $settings;
+//        });
+//
+//        // Add a menu item for testing
+//        add_action('admin_menu', function () {
+//            add_menu_page(
+//                'Dummy plugin Two',
+//                'Dummy Plugin Two',
+//                'read',
+//                'dummy-plugin-two-page-2',
+//                function () {
+//                    return __return_empty_string();
+//                }
+//            );
+//
+//            add_submenu_page(
+//                'dummy-plugin-two-page-2',
+//                'Dummy Plugin Two Sub 1',
+//                'Dummy Plugin Two Sub 1',
+//                'read',
+//                'dummy-plugin-two-sub-1',
+//                function () {
+//                    return __return_empty_string();
+//                }
+//            );
+//
+//            add_submenu_page(
+//                'dummy-plugin-two-page-2',
+//                'Dummy Plugin Two Sub 2',
+//                'Dummy Plugin Two Sub 2',
+//                'read',
+//                'dummy-plugin-two-sub-2',
+//                function () {
+//                    return __return_empty_string();
+//                }
+//            );
+//        });
+//    }, -15, 0);
+//
+//    define('DUMB_PLUGIN_TWO_LOADED', true);
 }

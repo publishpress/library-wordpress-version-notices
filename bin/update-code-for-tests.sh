@@ -8,6 +8,11 @@ rsync -a tests/_data/dumb-plugin-two ~/DevKinsta/public/php80tests/wp-content/pl
 
 # Copy the library into the dumb plugin
 echo 'Copying the library into the dumb plugin one'
-rsync -a ./ ~/DevKinsta/public/php80tests/wp-content/plugins/dumb-plugin-one/vendor/publishpress/wordpress-version-notices/ --exclude .git --exclude tests
+rsync -a ./ ~/DevKinsta/public/php80tests/wp-content/plugins/dumb-plugin-one/lib/ --exclude .git --exclude tests --exclude composer.json --exclude composer.lock
+cd ~/DevKinsta/public/php80tests/wp-content/plugins/dumb-plugin-one/
+composer update
+
 echo 'Copying the library into the dumb plugin two'
-rsync -a ./ ~/DevKinsta/public/php80tests/wp-content/plugins/dumb-plugin-two/vendor/publishpress/wordpress-version-notices/ --exclude .git --exclude tests
+rsync -a ./ ~/DevKinsta/public/php80tests/wp-content/plugins/dumb-plugin-two/lib/ --exclude .git --exclude tests --exclude composer.json --exclude composer.lock
+cd ~/DevKinsta/public/php80tests/wp-content/plugins/dumb-plugin-two/
+composer update

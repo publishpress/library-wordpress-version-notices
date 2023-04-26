@@ -1,0 +1,271 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "ea12df4fc315d0762da09a9cb61ebc0c",
+    "packages": [
+        {
+            "name": "publishpress/pimple-pimple",
+            "version": "3.5.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/publishpress/library-pimple-pimple.git",
+                "reference": "e259fdbb057530f167d125780d978e9e92be9fbc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/publishpress/library-pimple-pimple/zipball/e259fdbb057530f167d125780d978e9e92be9fbc",
+                "reference": "e259fdbb057530f167d125780d978e9e92be9fbc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.5",
+                "publishpress/psr-container": "^2.0.1.1"
+            },
+            "require-dev": {
+                "brianhenryie/strauss": "^0.14.0",
+                "codeception/module-asserts": "^1.0",
+                "codeception/module-cli": "^1.0",
+                "codeception/module-db": "^1.0",
+                "codeception/module-filesystem": "^1.0",
+                "codeception/module-phpbrowser": "^1.0",
+                "codeception/module-webdriver": "^1.0",
+                "codeception/util-universalframework": "^1.0",
+                "lucatume/wp-browser": "^3.1",
+                "pimple/pimple": "3.5.0",
+                "publishpress/codeception-extension-extended-copier": "^1.0",
+                "publishpress/version-loader-generator": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "generator": {
+                    "lib-class-test": "class_exists('PublishPress\\Pimple\\Container')"
+                },
+                "strauss": {
+                    "target_directory": "lib",
+                    "namespace_prefix": "PublishPress\\",
+                    "classmap_prefix": "PublishPress_",
+                    "constant_prefix": "PUBLISHPRESS_",
+                    "include_author": "true",
+                    "classmap_output": "true",
+                    "packages": [
+                        "pimple/pimple",
+                        "psr/container"
+                    ],
+                    "override_autoload": [],
+                    "exclude_from_copy": {
+                        "packages": [],
+                        "namespaces": [],
+                        "file_patterns": []
+                    },
+                    "exclude_from_prefix": {
+                        "packages": [],
+                        "namespaces": [],
+                        "file_patterns": []
+                    },
+                    "namespace_replacement_patterns": [],
+                    "delete_vendor_packages": true,
+                    "delete_vendor_files": true
+                }
+            },
+            "autoload": {
+                "files": [
+                    "lib/include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "PublishPress",
+                    "email": "help@publishpress.com"
+                }
+            ],
+            "description": "Pimple, a simple Dependency Injection Container, prefixed for PublishPress",
+            "homepage": "https://github.com/silexphp/Pimple/",
+            "keywords": [
+                "container",
+                "dependency injection",
+                "publishpress"
+            ],
+            "support": {
+                "issues": "https://github.com/publishpress/library-pimple-pimple/issues",
+                "source": "https://github.com/publishpress/library-pimple-pimple/tree/3.5.0.6"
+            },
+            "time": "2023-04-24T21:43:09+00:00"
+        },
+        {
+            "name": "publishpress/psr-container",
+            "version": "2.0.1.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/publishpress/library-psr-container.git",
+                "reference": "ac74968078f796cf13196b3d19715baa9a2310a2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/publishpress/library-psr-container/zipball/ac74968078f796cf13196b3d19715baa9a2310a2",
+                "reference": "ac74968078f796cf13196b3d19715baa9a2310a2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.5"
+            },
+            "require-dev": {
+                "brianhenryie/strauss": "^0.14.0",
+                "codeception/module-asserts": "^1.0",
+                "codeception/module-cli": "^1.0",
+                "codeception/module-db": "^1.0",
+                "codeception/module-filesystem": "^1.0",
+                "codeception/module-phpbrowser": "^1.0",
+                "codeception/module-webdriver": "^1.0",
+                "codeception/util-universalframework": "^1.0",
+                "lucatume/wp-browser": "^3.1",
+                "psr/container": "2.0.1",
+                "publishpress/codeception-extension-extended-copier": "^1.0",
+                "publishpress/version-loader-generator": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "generator": {
+                    "lib-class-test": "interface_exists('PublishPress\\Psr\\Container\\ContainerInterface')"
+                },
+                "strauss": {
+                    "target_directory": "lib",
+                    "namespace_prefix": "PublishPress\\",
+                    "classmap_prefix": "PublishPress_",
+                    "constant_prefix": "PUBLISHPRESS_",
+                    "include_author": "true",
+                    "classmap_output": "true",
+                    "packages": [
+                        "psr/container"
+                    ],
+                    "override_autoload": [],
+                    "exclude_from_copy": {
+                        "packages": [],
+                        "namespaces": [],
+                        "file_patterns": []
+                    },
+                    "exclude_from_prefix": {
+                        "packages": [],
+                        "namespaces": [],
+                        "file_patterns": []
+                    },
+                    "namespace_replacement_patterns": [],
+                    "delete_vendor_packages": true,
+                    "delete_vendor_files": true
+                }
+            },
+            "autoload": {
+                "files": [
+                    "lib/include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                },
+                {
+                    "name": "PublishPress",
+                    "email": "help@publishpress.com"
+                }
+            ],
+            "description": "Common Container Interface (PHP FIG PSR-11), prefixed for PublishPress plugins",
+            "homepage": "https://github.com/php-fig/container",
+            "keywords": [
+                "PSR-11",
+                "container",
+                "container-interface",
+                "container-interop",
+                "psr",
+                "publishpress"
+            ],
+            "support": {
+                "issues": "https://github.com/publishpress/library-psr-container/issues",
+                "source": "https://github.com/publishpress/library-psr-container/tree/2.0.1.6"
+            },
+            "time": "2023-04-24T21:38:43+00:00"
+        },
+        {
+            "name": "publishpress/wordpress-version-notices",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/publishpress/library-wordpress-version-notices.git",
+                "reference": "4f552ba8a01550188dcac8b347012914796331a3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/publishpress/library-wordpress-version-notices/zipball/4f552ba8a01550188dcac8b347012914796331a3",
+                "reference": "4f552ba8a01550188dcac8b347012914796331a3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.5",
+                "publishpress/pimple-pimple": "^3.5.0.0",
+                "publishpress/psr-container": "^2.0.1.0"
+            },
+            "require-dev": {
+                "codeception/module-asserts": "^1.0",
+                "codeception/module-cli": "^1.0",
+                "codeception/module-db": "^1.0",
+                "codeception/module-filesystem": "^1.0",
+                "codeception/module-phpbrowser": "^1.0",
+                "codeception/module-rest": "^1.3",
+                "codeception/module-webdriver": "^1.0",
+                "codeception/util-universalframework": "^1.0",
+                "composer/composer": "2.2.12",
+                "lucatume/wp-browser": "^3",
+                "overtrue/phplint": "^2.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PPVersionNotices\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "PublishPress",
+                    "email": "help@publishpress.com",
+                    "homepage": "https://publishpress.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Library for displaying version notices for Pro plugins in WordPress.",
+            "support": {
+                "issues": "https://github.com/publishpress/library-wordpress-version-notices/issues",
+                "source": "https://github.com/publishpress/library-wordpress-version-notices/tree/2.0.1"
+            },
+            "time": "2023-04-21T02:50:25+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=7.2.5"
+    },
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
+}

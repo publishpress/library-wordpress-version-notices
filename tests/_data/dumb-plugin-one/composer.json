@@ -1,0 +1,20 @@
+{
+    "name": "publishpress/dumb-plugin-one",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Anderson Martins",
+            "email": "anderson@publishpress.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../../../"
+        }
+    ],
+    "require": {
+        "php": ">=7.2.5",
+        "publishpress/wordpress-version-notices": "*"
+    }
+}
