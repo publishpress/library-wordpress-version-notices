@@ -15,6 +15,10 @@ add_action('plugins_loaded', function () {
         define('PP_VERSION_NOTICES_BASE_URL', untrailingslashit(plugin_dir_url(__FILE__)));
         define('PP_VERSION_NOTICES_SRC_PATH', __DIR__);
 
+        if (! class_exists('PPVersionNotices\\Autoloader')) {
+            require_once __DIR__ . '/Autoloader.php';
+        }
+
         Autoloader::register();
 
         $container = new Container();
