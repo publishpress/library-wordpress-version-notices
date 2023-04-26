@@ -12,8 +12,10 @@ add_action('plugins_loaded', function () {
     if (! defined('PP_VERSION_NOTICES_LOADED')) {
         define('PP_VERSION_NOTICES_VERSION', '2.0.1');
         define('PP_VERSION_NOTICES_BASE_PATH', __DIR__ . '/../');
-        define('PP_VERSION_NOTICES_BASE_URL', untrailingslashit(plugin_dir_url(__FILE__)));
         define('PP_VERSION_NOTICES_SRC_PATH', __DIR__);
+
+        // @deprecated
+        define('PP_VERSION_NOTICES_BASE_URL', untrailingslashit(plugin_dir_url(__FILE__)));
 
         if (! class_exists('PPVersionNotices\\Autoloader')) {
             require_once __DIR__ . '/Autoloader.php';
