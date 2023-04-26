@@ -77,12 +77,49 @@ class Module
 
     public function adminEnqueueStyle()
     {
-        wp_enqueue_style(
-            self::STYLE_HANDLE,
-            PP_VERSION_NOTICES_BASE_URL . '/assets/css/menu-item.css',
-            false,
-            PP_VERSION_NOTICES_VERSION
-        );
+        $style = <<<STYLE
+.pp-version-notice-upgrade-menu-item {
+    font-weight: bold !important;
+    color: #FEB123 !important;
+    font-weight: bold;
+}
+
+.pp-version-notice-upgrade-menu-item-page {
+    padding: 10px;
+    width: calc(100% - 40px);
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pp-version-notice-upgrade-menu-item-page .spin {
+    -webkit-animation: spin 1000ms infinite linear;
+    animation: spin 1000ms infinite linear;
+    color: #635A93;
+}
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
+STYLE;
+
+        wp_add_inline_style(self::STYLE_HANDLE, $style);
     }
 
     /**
