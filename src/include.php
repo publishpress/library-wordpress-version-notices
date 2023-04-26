@@ -16,7 +16,7 @@ if (! function_exists('add_action')) {
     return;
 }
 
-if (! function_exists(__NAMESPACE__ . '\register2Dot0Dot3')) {
+if (! function_exists(__NAMESPACE__ . '\register2Dot0Dot2')) {
     if (! defined('PUBLISHPRESS_WORDPRESS_VERSION_NOTICES_INCLUDED')) {
         define('PUBLISHPRESS_WORDPRESS_VERSION_NOTICES_INCLUDED', __DIR__);
     }
@@ -27,24 +27,24 @@ if (! function_exists(__NAMESPACE__ . '\register2Dot0Dot3')) {
         add_action('plugins_loaded', [Versions::class, 'initializeLatestVersion'], -150, 0);
     }
 
-    add_action('plugins_loaded', __NAMESPACE__ . '\register2Dot0Dot3', -190, 0);
+    add_action('plugins_loaded', __NAMESPACE__ . '\register2Dot0Dot2', -190, 0);
 
-    function register2Dot0Dot3()
+    function register2Dot0Dot2()
     {
         if (! class_exists('PPVersionNotices\ServicesProvider')) {
             $versions = Versions::getInstance();
-            $versions->register('2.0.3', __NAMESPACE__ . '\initialize2Dot0Dot3');
+            $versions->register('2.0.2', __NAMESPACE__ . '\initialize2Dot0Dot2');
         }
     }
 
-    function initialize2Dot0Dot3()
+    function initialize2Dot0Dot2()
     {
         require_once __DIR__ . '/autoload.php';
         
         if (! defined('PUBLISHPRESS_WORDPRESS_VERSION_NOTICES_VERSION')) {
-            define('PUBLISHPRESS_WORDPRESS_VERSION_NOTICES_VERSION', '2.0.3');
+            define('PUBLISHPRESS_WORDPRESS_VERSION_NOTICES_VERSION', '2.0.2');
         }
         
-        do_action('publishpress_wordpress_version_notices_2Dot0Dot3_initialized');
+        do_action('publishpress_wordpress_version_notices_2Dot0Dot2_initialized');
     }
 }
