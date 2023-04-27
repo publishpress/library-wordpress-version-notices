@@ -15,11 +15,6 @@
   "config": {
     "preferred-install": "dist"
   },
-  "autoload": {
-    "files": [
-      "src/include.php"
-    ]
-  },
   "minimum-stability": "stable",
   "require": {
     "php": ">=7.2.5",
