@@ -49,7 +49,7 @@ class VersionsCest
 
         $versions->initializeLatestVersion();
 
-        $I->assertTrue(class_exists('PPVersionNotices\ServicesProvider'));
+        $I->assertTrue(class_exists('PublishPress\WordpressVersionNotices\ServicesProvider'));
 
         $didAction = (bool)did_action('publishpress_wordpress_version_notices_2Dot0Dot2_initialized');
         $I->assertTrue($didAction);

@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "566af310e6ee62ff048e5ed7cb1fae5f",
+    "content-hash": "92c1760f3f05e17d67149b13011aa82c",
     "packages": [
         {
             "name": "publishpress/pimple-pimple",
-            "version": "3.5.0.7",
+            "version": "3.5.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/publishpress/library-pimple-pimple.git",
-                "reference": "2974517f906cdebac620dc5aeabf5f8ac34ebe70"
+                "reference": "71391cfc7817381d3c8942b01909755701fd57ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/publishpress/library-pimple-pimple/zipball/2974517f906cdebac620dc5aeabf5f8ac34ebe70",
-                "reference": "2974517f906cdebac620dc5aeabf5f8ac34ebe70",
+                "url": "https://api.github.com/repos/publishpress/library-pimple-pimple/zipball/71391cfc7817381d3c8942b01909755701fd57ad",
+                "reference": "71391cfc7817381d3c8942b01909755701fd57ad",
                 "shasum": ""
             },
             "require": {
@@ -72,11 +72,6 @@
                     "delete_vendor_files": true
                 }
             },
-            "autoload": {
-                "files": [
-                    "lib/include.php"
-                ]
-            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
@@ -100,22 +95,22 @@
             ],
             "support": {
                 "issues": "https://github.com/publishpress/library-pimple-pimple/issues",
-                "source": "https://github.com/publishpress/library-pimple-pimple/tree/3.5.0.7"
+                "source": "https://github.com/publishpress/library-pimple-pimple/tree/3.5.0.9"
             },
-            "time": "2023-04-26T01:54:50+00:00"
+            "time": "2023-04-27T21:07:44+00:00"
         },
         {
             "name": "publishpress/psr-container",
-            "version": "2.0.1.7",
+            "version": "2.0.1.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/publishpress/library-psr-container.git",
-                "reference": "f69f504b2feb966c80789e24c2cf237e32c6cab9"
+                "reference": "bf3626cbf9bc4c46b936d7151148c3b43ea64bff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/publishpress/library-psr-container/zipball/f69f504b2feb966c80789e24c2cf237e32c6cab9",
-                "reference": "f69f504b2feb966c80789e24c2cf237e32c6cab9",
+                "url": "https://api.github.com/repos/publishpress/library-psr-container/zipball/bf3626cbf9bc4c46b936d7151148c3b43ea64bff",
+                "reference": "bf3626cbf9bc4c46b936d7151148c3b43ea64bff",
                 "shasum": ""
             },
             "require": {
@@ -168,11 +163,6 @@
                     "delete_vendor_files": true
                 }
             },
-            "autoload": {
-                "files": [
-                    "lib/include.php"
-                ]
-            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
@@ -199,9 +189,9 @@
             ],
             "support": {
                 "issues": "https://github.com/publishpress/library-psr-container/issues",
-                "source": "https://github.com/publishpress/library-psr-container/tree/2.0.1.7"
+                "source": "https://github.com/publishpress/library-psr-container/tree/2.0.1.9"
             },
-            "time": "2023-04-26T01:36:16+00:00"
+            "time": "2023-04-27T21:09:00+00:00"
         }
     ],
     "packages-dev": [

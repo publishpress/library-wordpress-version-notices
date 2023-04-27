@@ -1,6 +1,6 @@
 <?php
 
-namespace PPVersionNotices;
+namespace PublishPress\WordpressVersionNotices;
 
 class Autoloader
 {
@@ -27,7 +27,7 @@ class Autoloader
         $base_dir = __DIR__ . '/';
 
         // namespace prefix
-        $prefix = 'PPVersionNotices\\';
+        $prefix = 'PublishPress\\WordpressVersionNotices\\';
 
         // does the class use the namespace prefix?
         $len = strlen($prefix);
