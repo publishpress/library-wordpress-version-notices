@@ -21,7 +21,7 @@ class VersionsCest
         $I->assertEquals([
             '2.0.0.1' => 'PublishPress\WordpressVersionNotices\initialize2Dot0Dot0Dot1',
             '2.0.0.2' => 'PublishPress\WordpressVersionNotices\initialize2Dot0Dot0Dot2',
-            '2.0.2' => 'PublishPress\WordpressVersionNotices\initialize2Dot0Dot2',
+            '2.1.1' => 'PublishPress\WordpressVersionNotices\initialize2Dot1Dot1',
         ], $registeredVersions);
     }
 
@@ -31,7 +31,7 @@ class VersionsCest
 
         $latestVersion = $versions->latestVersion();
 
-        $I->assertEquals('2.0.2', $latestVersion);
+        $I->assertEquals('2.1.1', $latestVersion);
     }
 
     public function testLatestVersionCallbackIsTheLastOne(WpunitTester $I)
@@ -40,7 +40,7 @@ class VersionsCest
 
         $latestVersionCallback = $versions->latestVersionCallback();
 
-        $I->assertEquals('PublishPress\WordpressVersionNotices\initialize2Dot0Dot2', $latestVersionCallback);
+        $I->assertEquals('PublishPress\WordpressVersionNotices\initialize2Dot1Dot1', $latestVersionCallback);
     }
 
     public function testInitializeLatestVersion(WpunitTester $I)
@@ -51,7 +51,7 @@ class VersionsCest
 
         $I->assertTrue(class_exists('PublishPress\WordpressVersionNotices\ServicesProvider'));
 
-        $didAction = (bool)did_action('publishpress_wordpress_version_notices_2Dot0Dot2_initialized');
+        $didAction = (bool)did_action('publishpress_wordpress_version_notices_2Dot1Dot1_initialized');
         $I->assertTrue($didAction);
     }
 }
