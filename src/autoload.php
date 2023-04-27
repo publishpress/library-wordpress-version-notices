@@ -21,11 +21,11 @@ add_action('plugins_loaded', function () {
             require_once __DIR__ . '/Autoloader.php';
         }
 
+        Autoloader::register();
+
         if (! class_exists('PPVersionNotices\\Autoloader')) {
             require_once __DIR__ . '/deprecated.php';
         }
-
-        Autoloader::register();
 
         $container = new Container();
         $container->register(new ServicesProvider());
