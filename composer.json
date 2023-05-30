@@ -16,6 +16,11 @@
     "preferred-install": "dist"
   },
   "minimum-stability": "stable",
+  "autoload": {
+    "files": [
+      "src/include.php"
+    ]
+  },
   "require": {
     "php": ">=7.2.5",
     "publishpress/pimple-pimple": "^3.5.0.0",
