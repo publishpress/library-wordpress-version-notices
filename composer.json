@@ -2,7 +2,7 @@
   "name": "publishpress/wordpress-version-notices",
   "description": "Library for displaying version notices for Pro plugins in WordPress.",
   "type": "library",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "license": "GPL-3.0-or-later",
   "authors": [
     {
@@ -41,26 +41,26 @@
     "publishpress/version-loader-generator": "^1.0"
   },
   "scripts": {
-    "update-code-for-tests": "bin/update-code-for-tests.sh",
-    "generate-loader-files": [
+    "update:tests": "bin/update:tests.sh",
+    "gen:loader": [
       "vendor/bin/version-loader-generator"
     ],
     "post-install-cmd": [
-      "@generate-loader-files"
+      "@gen:loader"
     ],
     "post-update-cmd": [
-      "@generate-loader-files"
+      "@gen:loader"
     ],
     "test:wpunit": [
-      "@update-code-for-tests",
+      "@update:tests",
       "vendor/bin/codecept run wpunit"
     ],
     "test:acceptance": [
-      "@update-code-for-tests",
+      "@update:tests",
       "vendor/bin/codecept run acceptance"
     ],
     "test": [
-      "@update-code-for-tests",
+      "@update:tests",
       "@test:wpunit",
       "@test:acceptance"
     ]
