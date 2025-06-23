@@ -146,13 +146,13 @@ class Module implements AdInterface
                 background: #655997;
                 height: auto;
                 box-sizing: border-box;
-                padding: 18px 7px 20px 7px;
+                padding: 12px 40px;
                 text-align: center;
                 position: relative;
                 overflow: hidden;
                 line-height: 20px;
                 margin-left: -20px;
-                font-size: 16px;
+                font-size: 14px;
                 color: #fff;
             }
 
@@ -161,7 +161,7 @@ class Module implements AdInterface
                 color: #000 !important;
                 font-weight: normal;
                 text-decoration: none;
-                padding: 9px 12px;
+                padding: 6px 10px;
                 -webkit-border-radius: 4px;
                 -moz-border-radius: 4px;
                 border-radius: 4px;
@@ -183,7 +183,7 @@ class Module implements AdInterface
                 }
 
                 .pp-version-notice-bold-purple-message {
-                    margin-right: 25px;
+                    margin-right: 18px;
                 }
             }
 
