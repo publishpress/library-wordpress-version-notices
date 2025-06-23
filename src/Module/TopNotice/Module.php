@@ -146,19 +146,32 @@ class Module implements AdInterface
                 background: #655997;
                 height: auto;
                 box-sizing: border-box;
-                padding: 12px 40px;
+                padding: 10px 40px;
                 text-align: center;
                 position: relative;
                 overflow: hidden;
                 line-height: 20px;
                 margin-left: -20px;
                 font-size: 14px;
-                color: #fff;
+                color: #ffffff;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                vertical-align: middle;
+                justify-content: space-between;
             }
 
-            .pp-version-notice-bold-purple .pp-version-notice-bold-purple-button a {
+            .pp-version-notice-bold-purple-message {
+                width: 90%;
+                text-align: center;
+                margin-right: 20px;
+            }
+
+            .pp-version-notice-bold-purple-button {
                 background: #FEB123;
-                color: #000 !important;
+                color: #000000 !important;
                 font-weight: normal;
                 text-decoration: none;
                 padding: 6px 10px;
@@ -169,42 +182,34 @@ class Module implements AdInterface
                 border: 1px solid #fca871;
                 break-inside: avoid;
                 white-space: nowrap;
+                max-width: 170px;
             }
 
-            .pp-version-notice-bold-purple .pp-version-notice-bold-purple-button a:hover {
+            .pp-version-notice-bold-purple-button:hover {
                 background: #fcca46;
-                color: #000 !important;
+                color:#181818 !important;
             }
 
-            @media only screen and (min-width: 1075px) {
-                .pp-version-notice-bold-purple-message,
-                .pp-version-notice-bold-purple-button {
-                    display: inline-block;
-                }
-
-                .pp-version-notice-bold-purple-message {
-                    margin-right: 18px;
-                }
-            }
-
-            @media only screen and (max-width: 1074px) {
-                .pp-version-notice-bold-purple-message,
-                .pp-version-notice-bold-purple-button {
-                    display: block;
-                }
-
-                .pp-version-notice-bold-purple-button {
-                    margin-top: 20px;
-                }
-
-                .pp-version-notice-bold-purple-button a {
-                    max-width: 170px;
-                }
+            .pp-version-notice-bold-purple-button:active {
+                background: #FEB123;
+                color: #000000 !important;
             }
 
             @media only screen and (max-width: 600px) {
                 .pp-version-notice-bold-purple {
-                    padding-top: 60px;
+                    padding: 55px 15px 10px 15px;
+                }
+
+                .pp-version-notice-bold-purple-message {
+                    width: 62%;
+                    text-align: center;
+                    margin-right: 10px;
+                    margin-left: 10px;
+                }
+
+                .pp-version-notice-bold-purple-button {
+                    width: 38%;
+                    text-align: center;
                 }
             }
         </style>
