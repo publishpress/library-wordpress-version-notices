@@ -2,8 +2,8 @@
 
 /*****************************************************************
  * This file is generated on composer update command by
- * a custom script. 
- * 
+ * a custom script.
+ *
  * Do not edit it manually!
  ****************************************************************/
 
@@ -20,7 +20,7 @@ if (! function_exists(__NAMESPACE__ . '\register2Dot1Dot5')) {
     if (! defined('PUBLISHPRESS_WORDPRESS_VERSION_NOTICES_INCLUDED')) {
         define('PUBLISHPRESS_WORDPRESS_VERSION_NOTICES_INCLUDED', __DIR__);
     }
-        
+
     if (! class_exists('PublishPress\WordpressVersionNotices\Versions')) {
         require_once __DIR__ . '/Versions.php';
 
@@ -40,11 +40,11 @@ if (! function_exists(__NAMESPACE__ . '\register2Dot1Dot5')) {
     function initialize2Dot1Dot5()
     {
         require_once __DIR__ . '/autoload.php';
-        
+
         if (! defined('PUBLISHPRESS_WORDPRESS_VERSION_NOTICES_VERSION')) {
             define('PUBLISHPRESS_WORDPRESS_VERSION_NOTICES_VERSION', '2.1.5');
         }
-        
+
         do_action('publishpress_wordpress_version_notices_2Dot1Dot5_initialized');
     }
 }
