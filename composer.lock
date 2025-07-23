@@ -4468,16 +4468,16 @@
         },
         {
             "name": "publishpress/version-loader-generator",
-            "version": "1.2.2",
+            "version": "1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/publishpress/library-version-loader-generator.git",
-                "reference": "4bbf9584f2d98378755cc6674371ff451c1002a3"
+                "reference": "07b8fbb43d329f6570645e9e75758002e8c96b6f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/publishpress/library-version-loader-generator/zipball/4bbf9584f2d98378755cc6674371ff451c1002a3",
-                "reference": "4bbf9584f2d98378755cc6674371ff451c1002a3",
+                "url": "https://api.github.com/repos/publishpress/library-version-loader-generator/zipball/07b8fbb43d329f6570645e9e75758002e8c96b6f",
+                "reference": "07b8fbb43d329f6570645e9e75758002e8c96b6f",
                 "shasum": ""
             },
             "require": {
@@ -4504,12 +4504,12 @@
                     "email": "anderson@publishpress.com"
                 }
             ],
-            "description": "Composer script to generate the version loader files for libraries on PublishPress",
+            "description": "Composer script to generate the version loader files for libraries on PubilshPress",
             "support": {
                 "issues": "https://github.com/publishpress/library-version-loader-generator/issues",
-                "source": "https://github.com/publishpress/library-version-loader-generator/tree/1.2.2"
+                "source": "https://github.com/publishpress/library-version-loader-generator/tree/1.2.3"
             },
-            "time": "2025-07-14T17:17:00+00:00"
+            "time": "2025-07-23T02:57:47+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
