@@ -30,3 +30,5 @@ node_modules
 /dist
 .env.testing
 wordpress-version-notices.code-workspace
+.env
+dev-workspace/.cache

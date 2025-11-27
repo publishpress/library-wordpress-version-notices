@@ -1,0 +1,29 @@
+includes:
+    - vendor/szepeviktor/phpstan-wordpress/extension.neon
+
+parameters:
+    level: 8
+    paths:
+    	- src
+    	- templates
+    excludePaths:
+        - lib
+        - vendor
+        - .github
+        - .vscode
+        - .idea
+        - tests
+        - tests-old
+        - .wordpress-org
+        - bin
+        - dist
+        - languages
+        - node_modules
+        - dev-workspace
+        - cache
+        - .cache
+    bootstrapFiles:
+        - tests/bootstrap.php
+
+    # WordPress specific configuration
+    inferPrivatePropertyTypeFromConstructor: true
