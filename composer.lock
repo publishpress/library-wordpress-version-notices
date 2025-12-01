@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ecbab0e69be67fe29b5382b2b1f9b22d",
+    "content-hash": "0d16ecb14ab0e1897e540688e46cf422",
     "packages": [
         {
             "name": "publishpress/pimple-pimple",
@@ -5273,6 +5273,67 @@
                 "source": "https://github.com/publishpress/publishpress-phpcs-standards/tree/main"
             },
             "time": "2024-03-18T15:09:57+00:00"
+        },
+        {
+            "name": "publishpress/translations",
+            "version": "dev-development",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/publishpress/library-publishpress-translator.git",
+                "reference": "0e2603620c72cbd71a108e9da42532a438eac91c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/publishpress/library-publishpress-translator/zipball/0e2603620c72cbd71a108e9da42532a438eac91c",
+                "reference": "0e2603620c72cbd71a108e9da42532a438eac91c",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "^7.0",
+                "php": ">=7.2.5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.0"
+            },
+            "default-branch": true,
+            "bin": [
+                "bin/publishpress-translate"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PublishPress\\Translations\\": "src/"
+                }
+            },
+            "scripts": {
+                "post-install-cmd": [
+                    "@setup-potomatic"
+                ],
+                "post-update-cmd": [
+                    "@setup-potomatic"
+                ],
+                "setup-potomatic": [
+                    "@php -r \"echo '\\n\\u1F4E6 Setting up Potomatic...\\n';\"",
+                    "cd potomatic && npm install --omit=dev --silent || echo 'Warning: npm not found. Please install Node.js from https://nodejs.org/'",
+                    "@php -r \"echo '\\u2713 Potomatic ready!\\n\\n';\""
+                ]
+            },
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "PublishPress",
+                    "email": "help@publishpress.com"
+                }
+            ],
+            "description": "AI-powered translation automation for PublishPress plugins using Potomatic",
+            "support": {
+                "source": "https://github.com/publishpress/library-publishpress-translator/tree/development",
+                "issues": "https://github.com/publishpress/library-publishpress-translator/issues"
+            },
+            "time": "2025-11-21T16:00:41+00:00"
         },
         {
             "name": "publishpress/version-loader-generator",
@@ -11977,7 +12038,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "publishpress/publishpress-phpcs-standards": 20
+        "publishpress/publishpress-phpcs-standards": 20,
+        "publishpress/translations": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
@@ -11985,5 +12047,5 @@
         "php": ">=7.2.5"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.6.0"
 }

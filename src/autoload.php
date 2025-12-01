@@ -8,6 +8,13 @@ if (! function_exists('untrailingslashit') || ! function_exists('plugin_dir_url'
     return;
 }
 
+if (! defined('PP_VERSION_NOTICES_TEXT_DOMAIN_LOADED')) {
+    define('PP_VERSION_NOTICES_TEXT_DOMAIN_LOADED', true);
+
+    $mofile = dirname(__DIR__) . '/languages/library-wordpress-version-notices-' . determine_locale() . '.mo';
+    load_textdomain('library-wordpress-version-notices', $mofile);
+}
+
 add_action('plugins_loaded', function () {
     if (! defined('PP_VERSION_NOTICES_LOADED')) {
         define('PP_VERSION_NOTICES_VERSION', '2.1.5');
