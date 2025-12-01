@@ -11,8 +11,8 @@ if (! function_exists('untrailingslashit') || ! function_exists('plugin_dir_url'
 if (! defined('PP_VERSION_NOTICES_TEXT_DOMAIN_LOADED')) {
     define('PP_VERSION_NOTICES_TEXT_DOMAIN_LOADED', true);
 
-    $mofile = dirname(__DIR__) . '/languages/publishpress-wordpress-version-notice-' . determine_locale() . '.mo';
-    load_textdomain('publishpress-wordpress-version-notice', $mofile);
+    $mofile = dirname(__DIR__) . '/languages/publishpress-wordpress-version-notices-' . determine_locale() . '.mo';
+    load_textdomain('publishpress-wordpress-version-notices', $mofile);
 }
 
 add_action('plugins_loaded', function () {
