@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "96d8e5cd5effb4539c512c3bfddaf691",
+    "content-hash": "65c7c7ded8d0be1d864c1fc48673ce02",
     "packages": [
         {
             "name": "publishpress/pimple-pimple",
@@ -106,16 +106,16 @@
         },
         {
             "name": "publishpress/psr-container",
-            "version": "2.0.1.10",
+            "version": "2.0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/publishpress/library-psr-container.git",
-                "reference": "4ccd2cb058e7b93e96186791ca25870a02e35c5d"
+                "reference": "f7dcfe570c0315267cff32935356fb9a52e044fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/publishpress/library-psr-container/zipball/4ccd2cb058e7b93e96186791ca25870a02e35c5d",
-                "reference": "4ccd2cb058e7b93e96186791ca25870a02e35c5d",
+                "url": "https://api.github.com/repos/publishpress/library-psr-container/zipball/f7dcfe570c0315267cff32935356fb9a52e044fc",
+                "reference": "f7dcfe570c0315267cff32935356fb9a52e044fc",
                 "shasum": ""
             },
             "require": {
@@ -131,7 +131,7 @@
                 "codeception/module-webdriver": "^1.0",
                 "codeception/util-universalframework": "^1.0",
                 "lucatume/wp-browser": "^3.1",
-                "psr/container": "2.0.1",
+                "psr/container": "2.0.2",
                 "publishpress/codeception-extension-extended-copier": "^1.0",
                 "publishpress/version-loader-generator": "^1.0"
             },
@@ -199,9 +199,9 @@
             ],
             "support": {
                 "issues": "https://github.com/publishpress/library-psr-container/issues",
-                "source": "https://github.com/publishpress/library-psr-container/tree/2.0.1.10"
+                "source": "https://github.com/publishpress/library-psr-container/tree/2.0.2.0"
             },
-            "time": "2023-05-30T18:17:45+00:00"
+            "time": "2025-12-08T21:47:29+00:00"
         }
     ],
     "packages-dev": [
@@ -309,16 +309,16 @@
         },
         {
             "name": "behat/gherkin",
-            "version": "v4.16.0",
+            "version": "v4.16.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Gherkin.git",
-                "reference": "78e7755170981231012414a4ff58ebbbc3c62305"
+                "reference": "e26037937dfd48528746764dd870bc5d0836665f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/78e7755170981231012414a4ff58ebbbc3c62305",
-                "reference": "78e7755170981231012414a4ff58ebbbc3c62305",
+                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/e26037937dfd48528746764dd870bc5d0836665f",
+                "reference": "e26037937dfd48528746764dd870bc5d0836665f",
                 "shasum": ""
             },
             "require": {
@@ -372,7 +372,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Behat/Gherkin/issues",
-                "source": "https://github.com/Behat/Gherkin/tree/v4.16.0"
+                "source": "https://github.com/Behat/Gherkin/tree/v4.16.1"
             },
             "funding": [
                 {
@@ -388,7 +388,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-12-08T11:51:05+00:00"
+            "time": "2025-12-08T16:12:58+00:00"
         },
         {
             "name": "bordoni/phpass",
@@ -1296,16 +1296,16 @@
         },
         {
             "name": "composer/ca-bundle",
-            "version": "1.5.9",
+            "version": "1.5.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "1905981ee626e6f852448b7aaa978f8666c5bc54"
+                "reference": "961a5e4056dd2e4a2eedcac7576075947c28bf63"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/1905981ee626e6f852448b7aaa978f8666c5bc54",
-                "reference": "1905981ee626e6f852448b7aaa978f8666c5bc54",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/961a5e4056dd2e4a2eedcac7576075947c28bf63",
+                "reference": "961a5e4056dd2e4a2eedcac7576075947c28bf63",
                 "shasum": ""
             },
             "require": {
@@ -1352,7 +1352,7 @@
             "support": {
                 "irc": "irc://irc.freenode.org/composer",
                 "issues": "https://github.com/composer/ca-bundle/issues",
-                "source": "https://github.com/composer/ca-bundle/tree/1.5.9"
+                "source": "https://github.com/composer/ca-bundle/tree/1.5.10"
             },
             "funding": [
                 {
@@ -1364,7 +1364,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-11-06T11:46:17+00:00"
+            "time": "2025-12-08T15:06:51+00:00"
         },
         {
             "name": "composer/composer",
@@ -4255,16 +4255,16 @@
         },
         {
             "name": "phpcsstandards/phpcsutils",
-            "version": "1.2.1",
+            "version": "1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHPCSUtils.git",
-                "reference": "d71128c702c180ca3b27c761b6773f883394f162"
+                "reference": "c216317e96c8b3f5932808f9b0f1f7a14e3bbf55"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHPCSUtils/zipball/d71128c702c180ca3b27c761b6773f883394f162",
-                "reference": "d71128c702c180ca3b27c761b6773f883394f162",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHPCSUtils/zipball/c216317e96c8b3f5932808f9b0f1f7a14e3bbf55",
+                "reference": "c216317e96c8b3f5932808f9b0f1f7a14e3bbf55",
                 "shasum": ""
             },
             "require": {
@@ -4344,7 +4344,7 @@
                     "type": "thanks_dev"
                 }
             ],
-            "time": "2025-11-17T12:58:33+00:00"
+            "time": "2025-12-08T14:27:58+00:00"
         },
         {
             "name": "phpstan/phpstan",
@@ -5290,16 +5290,16 @@
         },
         {
             "name": "publishpress/translations",
-            "version": "dev-development",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/publishpress/library-publishpress-translator.git",
-                "reference": "0e2603620c72cbd71a108e9da42532a438eac91c"
+                "reference": "a9772c58a5597fbd655178f097148066ce35a83b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/publishpress/library-publishpress-translator/zipball/0e2603620c72cbd71a108e9da42532a438eac91c",
-                "reference": "0e2603620c72cbd71a108e9da42532a438eac91c",
+                "url": "https://api.github.com/repos/publishpress/library-publishpress-translator/zipball/a9772c58a5597fbd655178f097148066ce35a83b",
+                "reference": "a9772c58a5597fbd655178f097148066ce35a83b",
                 "shasum": ""
             },
             "require": {
@@ -5310,7 +5310,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^9.0"
             },
-            "default-branch": true,
             "bin": [
                 "bin/publishpress-translate"
             ],
@@ -5333,9 +5332,9 @@
             "description": "AI-powered translation automation for PublishPress plugins using Potomatic",
             "support": {
                 "issues": "https://github.com/publishpress/library-publishpress-translator/issues",
-                "source": "https://github.com/publishpress/library-publishpress-translator/tree/development"
+                "source": "https://github.com/publishpress/library-publishpress-translator/tree/1.0.0"
             },
-            "time": "2025-11-21T16:00:41+00:00"
+            "time": "2025-11-13T09:29:33+00:00"
         },
         {
             "name": "publishpress/version-loader-generator",
@@ -12040,14 +12039,13 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "publishpress/publishpress-phpcs-standards": 20,
-        "publishpress/translations": 20
+        "publishpress/publishpress-phpcs-standards": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
         "php": ">=7.2.5"
     },
-    "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "platform-dev": {},
+    "plugin-api-version": "2.6.0"
 }
