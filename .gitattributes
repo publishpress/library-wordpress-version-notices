@@ -8,6 +8,9 @@
 .github export-ignore
 .gitignore export-ignore
 .gitlab-ci.yml export-ignore
+.gitmodules export-ignore
+.phpcs-php-compatibility.xml export-ignore
+.phpcs.xml export-ignore
 .phplint.yml export-ignore
 .travis.yml export-ignore
 .vscode export-ignore
@@ -21,13 +24,17 @@
 *.tar.gz export-ignore
 *.testing export-ignore
 *.zip export-ignore
+/bin export-ignore
+/dev-workspace export-ignore
 /dist export-ignore
 /screenshot-*.png export-ignore
 /tests export-ignore
 behat.yml export-ignore
 bin export-ignore
 builder.yml export-ignore
+CHANGELOG.md export-ignore
 circle.yml export-ignore
+CLAUDE.md export-ignore
 codeception.dist.yml export-ignore
 codeception.yml export-ignore
 composer.json export-ignore
