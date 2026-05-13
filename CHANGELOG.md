@@ -1,6 +1,11 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+[2.2.1] - 13 May, 2026
+
+- Changed: Renamed license.txt to LICENSE for consistency.
+- Fixed: Configuration files are now excluded from release packages.
+
 [2.2.0] - 8 Dec, 2025
 
 - Added; Added publishpress/translations package to composer dependencies for improved translation management
